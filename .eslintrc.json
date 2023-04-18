@@ -1,0 +1,25 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "no-console": "warn",
+    "react/no-unescaped-entities": 0,
+    "no-duplicate-imports": "error",
+    "no-unused-vars": "warn",
+    "camelcase": "warn",
+    "no-dupe-class-members": "warn",
+    "no-dupe-args": "warn",
+    "prefer-destructuring": [
+      1,
+      {
+        "object": true,
+        "array": false
+      }
+    ],
+    "react/jsx-no-duplicate-props": [
+      1,
+      {
+        "ignoreCase": false
+      }
+    ]
+  }
+}

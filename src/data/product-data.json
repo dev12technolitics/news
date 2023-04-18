@@ -1,0 +1,1040 @@
+[
+  {
+    "title": "product-without-variants-without-quantityVariants",
+    "description": "<p><strong><em>something!</em></strong></p>",
+    "variants": [],
+    "b2cRows": [
+      {
+        "id": "c7cdf0cc-faed-4025-8b14-e328c44519cc",
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0
+      }
+    ],
+    "b2cColumns": [
+      {
+        "field": "variant",
+        "headerName": "Variant",
+        "width": 150
+      },
+      {
+        "field": "stockStatus",
+        "headerName": "Stock Status",
+        "editable": true,
+        "type": "singleSelect",
+        "valueOptions": ["In-Stock", "Out of Stock", "Low Stock"],
+        "width": 100
+      },
+      {
+        "field": "stock",
+        "headerName": "Stock",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "costPrice",
+        "headerName": "Cost Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "mrp",
+        "headerName": "MRP",
+        "type": "number",
+        "editable": true
+      },
+      {
+        "field": "perProductPrice",
+        "headerName": "Single Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for400plusQuantityPriceIs",
+        "headerName": "400+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for800plusQuantityPriceIs",
+        "headerName": "800+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      }
+    ],
+    "b2bRows": [
+      {
+        "id": "6e025c7d-75a3-4da2-9370-0d5316810663",
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0
+      }
+    ],
+    "b2bColumns": [
+      {
+        "field": "variant",
+        "headerName": "Variant",
+        "width": 150
+      },
+      {
+        "field": "stockStatus",
+        "headerName": "Stock Status",
+        "editable": true,
+        "type": "singleSelect",
+        "valueOptions": ["In-Stock", "Out of Stock", "Low Stock"],
+        "width": 100
+      },
+      {
+        "field": "stock",
+        "headerName": "Stock",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "costPrice",
+        "headerName": "Cost Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "mrp",
+        "headerName": "MRP",
+        "type": "number",
+        "editable": true
+      },
+      {
+        "field": "perProductPrice",
+        "headerName": "Single Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for400plusQuantityPriceIs",
+        "headerName": "400+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for800plusQuantityPriceIs",
+        "headerName": "800+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      }
+    ],
+    "seoTitle": "product-with-variants-with-quantityVariants",
+    "seoMetaDescription": "product-with-variants-with-quantityVariants",
+    "seoTags": ["variants", "quantity-variants"],
+    "seoSlug": "product-with-variants-with-quantityvariants",
+    "isActive": true,
+    "visibleToB2C": true,
+    "visibleToB2B": true,
+    "brandName": "C1",
+    "categories": ["C1", "C2"],
+    "subCategories": ["C1"],
+    "supSubCategories": ["C2"],
+    "images": [
+      {
+        "title": "baseImage",
+        "values": [
+          {
+            "path": "abrasive.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/08f5359e-4d51-437c-b09b-980c5dfbbb72"
+          },
+          {
+            "path": "amm.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/518d4128-8673-45c6-b594-46a09564523a"
+          }
+        ]
+      }
+    ],
+    "productId": "0ce220f6-4659-4796-a62e-3bb38d68260f"
+  },
+  {
+    "title": "product-without-variants-with-quantityVariants",
+    "description": "<p><strong><em>something!</em></strong></p>",
+    "variants": [],
+    "b2cRows": [
+      {
+        "id": "c7cdf0cc-faed-4025-8b14-e328c44519cc",
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0,
+        "for400plusQuantityPriceIs": 0,
+        "for800plusQuantityPriceIs": 0
+      }
+    ],
+    "b2cColumns": [
+      {
+        "field": "variant",
+        "headerName": "Variant",
+        "width": 150
+      },
+      {
+        "field": "stockStatus",
+        "headerName": "Stock Status",
+        "editable": true,
+        "type": "singleSelect",
+        "valueOptions": ["In-Stock", "Out of Stock", "Low Stock"],
+        "width": 100
+      },
+      {
+        "field": "stock",
+        "headerName": "Stock",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "costPrice",
+        "headerName": "Cost Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "mrp",
+        "headerName": "MRP",
+        "type": "number",
+        "editable": true
+      },
+      {
+        "field": "perProductPrice",
+        "headerName": "Single Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for400plusQuantityPriceIs",
+        "headerName": "400+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for800plusQuantityPriceIs",
+        "headerName": "800+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      }
+    ],
+    "b2bRows": [
+      {
+        "id": "6e025c7d-75a3-4da2-9370-0d5316810663",
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0,
+        "for400plusQuantityPriceIs": 0,
+        "for800plusQuantityPriceIs": 0
+      }
+    ],
+    "b2bColumns": [
+      {
+        "field": "variant",
+        "headerName": "Variant",
+        "width": 150
+      },
+      {
+        "field": "stockStatus",
+        "headerName": "Stock Status",
+        "editable": true,
+        "type": "singleSelect",
+        "valueOptions": ["In-Stock", "Out of Stock", "Low Stock"],
+        "width": 100
+      },
+      {
+        "field": "stock",
+        "headerName": "Stock",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "costPrice",
+        "headerName": "Cost Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "mrp",
+        "headerName": "MRP",
+        "type": "number",
+        "editable": true
+      },
+      {
+        "field": "perProductPrice",
+        "headerName": "Single Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for400plusQuantityPriceIs",
+        "headerName": "400+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for800plusQuantityPriceIs",
+        "headerName": "800+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      }
+    ],
+    "seoTitle": "product-with-variants-with-quantityVariants",
+    "seoMetaDescription": "product-with-variants-with-quantityVariants",
+    "seoTags": ["variants", "quantity-variants"],
+    "seoSlug": "product-with-variants-with-quantityvariants",
+    "isActive": true,
+    "visibleToB2C": true,
+    "visibleToB2B": true,
+    "brandName": "C1",
+    "categories": ["C1", "C2"],
+    "subCategories": ["C1"],
+    "supSubCategories": ["C2"],
+    "images": [
+      {
+        "title": "baseImage",
+        "values": [
+          {
+            "path": "abrasive.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/08f5359e-4d51-437c-b09b-980c5dfbbb72"
+          },
+          {
+            "path": "amm.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/518d4128-8673-45c6-b594-46a09564523a"
+          }
+        ]
+      }
+    ],
+    "productId": "0ce220f6-4659-4796-a62e-3bb38d68260f",
+    "quantityVariants": ["400", "800"]
+  },
+  {
+    "title": "product-with-variants-with-quantityVariants",
+    "description": "<p><strong><em>something!</em></strong></p>",
+    "leadVariant": "color",
+    "variants": [
+      {
+        "title": "color",
+        "options": ["red", "blue"]
+      },
+      {
+        "title": "size",
+        "options": ["m", "xl"]
+      }
+    ],
+    "b2cRows": [
+      {
+        "id": "8e8dd999-a532-4247-af4e-58b3708e9bb9",
+        "variant": "red, m",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2c&color=red&size=m",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "red"
+          },
+          {
+            "title": "size",
+            "value": "m"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 400,
+        "perProductPrice": 350
+      },
+      {
+        "id": "ad90d9f9-bf25-4254-9019-5d139d78cd5f",
+        "variant": "red, xl",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2c&color=red&size=xl",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "red"
+          },
+          {
+            "title": "size",
+            "value": "xl"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0
+      },
+      {
+        "id": "4b666df2-f74a-4532-9fec-703a6bd3735a",
+        "variant": "blue, m",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2c&color=blue&size=m",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "blue"
+          },
+          {
+            "title": "size",
+            "value": "m"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0
+      },
+      {
+        "id": "c7cdf0cc-faed-4025-8b14-e328c44519cc",
+        "variant": "blue, xl",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2c&color=blue&size=xl",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "blue"
+          },
+          {
+            "title": "size",
+            "value": "xl"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0
+      }
+    ],
+    "b2cColumns": [
+      {
+        "field": "variant",
+        "headerName": "Variant",
+        "width": 150
+      },
+      {
+        "field": "stockStatus",
+        "headerName": "Stock Status",
+        "editable": true,
+        "type": "singleSelect",
+        "valueOptions": ["In-Stock", "Out of Stock", "Low Stock"],
+        "width": 100
+      },
+      {
+        "field": "stock",
+        "headerName": "Stock",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "costPrice",
+        "headerName": "Cost Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "mrp",
+        "headerName": "MRP",
+        "type": "number",
+        "editable": true
+      },
+      {
+        "field": "perProductPrice",
+        "headerName": "Single Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for400plusQuantityPriceIs",
+        "headerName": "400+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for800plusQuantityPriceIs",
+        "headerName": "800+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      }
+    ],
+    "b2bRows": [
+      {
+        "id": "e80fcd73-74b0-4816-86f5-fb3a8f3ee812",
+        "variant": "red, m",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2b&color=red&size=m",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "red"
+          },
+          {
+            "title": "size",
+            "value": "m"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0
+      },
+      {
+        "id": "6d160623-7fe8-4a2f-89a8-909da877ad40",
+        "variant": "red, xl",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2b&color=red&size=xl",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "red"
+          },
+          {
+            "title": "size",
+            "value": "xl"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0
+      },
+      {
+        "id": "2b74b15f-d1f6-4486-a7de-409978e300f0",
+        "variant": "blue, m",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2b&color=blue&size=m",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "blue"
+          },
+          {
+            "title": "size",
+            "value": "m"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0
+      },
+      {
+        "id": "6e025c7d-75a3-4da2-9370-0d5316810663",
+        "variant": "blue, xl",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2b&color=blue&size=xl",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "blue"
+          },
+          {
+            "title": "size",
+            "value": "xl"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0
+      }
+    ],
+    "b2bColumns": [
+      {
+        "field": "variant",
+        "headerName": "Variant",
+        "width": 150
+      },
+      {
+        "field": "stockStatus",
+        "headerName": "Stock Status",
+        "editable": true,
+        "type": "singleSelect",
+        "valueOptions": ["In-Stock", "Out of Stock", "Low Stock"],
+        "width": 100
+      },
+      {
+        "field": "stock",
+        "headerName": "Stock",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "costPrice",
+        "headerName": "Cost Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "mrp",
+        "headerName": "MRP",
+        "type": "number",
+        "editable": true
+      },
+      {
+        "field": "perProductPrice",
+        "headerName": "Single Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for400plusQuantityPriceIs",
+        "headerName": "400+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for800plusQuantityPriceIs",
+        "headerName": "800+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      }
+    ],
+    "seoTitle": "product-with-variants-with-quantityVariants",
+    "seoMetaDescription": "product-with-variants-with-quantityVariants",
+    "seoTags": ["variants", "quantity-variants"],
+    "seoSlug": "product-with-variants-with-quantityvariants",
+    "isActive": true,
+    "visibleToB2C": true,
+    "visibleToB2B": true,
+    "brandName": "C1",
+    "categories": ["C1", "C2"],
+    "subCategories": ["C1"],
+    "supSubCategories": ["C2"],
+    "images": [
+      {
+        "title": "baseImage",
+        "values": [
+          {
+            "path": "abrasive.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/08f5359e-4d51-437c-b09b-980c5dfbbb72"
+          },
+          {
+            "path": "amm.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/518d4128-8673-45c6-b594-46a09564523a"
+          }
+        ]
+      },
+      {
+        "title": "red",
+        "values": [
+          {
+            "path": "popOne.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/5a731f08-3c41-4e57-8c66-b30c39ec9cc0"
+          },
+          {
+            "path": "sectionOne.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/5368cf7f-1ffa-45bd-972f-8cb1cc51423f"
+          }
+        ]
+      },
+      {
+        "title": "blue",
+        "values": [
+          {
+            "path": "bestseller3.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/66deab36-975b-481f-ba28-ef8215e16c35"
+          },
+          {
+            "path": "mobile_getstarted_one.jpeg",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/ccd4f058-87b7-4bc5-a490-281641bd8b42"
+          }
+        ]
+      }
+    ],
+    "productId": "0ce220f6-4659-4796-a62e-3bb38d68260f"
+  },
+  {
+    "title": "product-with-variants-with-quantityVariants",
+    "description": "<p><strong><em>something!</em></strong></p>",
+    "leadVariant": "color",
+    "variants": [
+      {
+        "title": "color",
+        "options": ["red", "blue"]
+      },
+      {
+        "title": "size",
+        "options": ["m", "xl"]
+      }
+    ],
+    "b2cRows": [
+      {
+        "id": "8e8dd999-a532-4247-af4e-58b3708e9bb9",
+        "variant": "red, m",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2c&color=red&size=m",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "red"
+          },
+          {
+            "title": "size",
+            "value": "m"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 400,
+        "perProductPrice": 350,
+        "for400plusQuantityPriceIs": 0,
+        "for800plusQuantityPriceIs": 0
+      },
+      {
+        "id": "ad90d9f9-bf25-4254-9019-5d139d78cd5f",
+        "variant": "red, xl",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2c&color=red&size=xl",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "red"
+          },
+          {
+            "title": "size",
+            "value": "xl"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0,
+        "for400plusQuantityPriceIs": 0,
+        "for800plusQuantityPriceIs": 0
+      },
+      {
+        "id": "4b666df2-f74a-4532-9fec-703a6bd3735a",
+        "variant": "blue, m",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2c&color=blue&size=m",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "blue"
+          },
+          {
+            "title": "size",
+            "value": "m"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0,
+        "for400plusQuantityPriceIs": 0,
+        "for800plusQuantityPriceIs": 0
+      },
+      {
+        "id": "c7cdf0cc-faed-4025-8b14-e328c44519cc",
+        "variant": "blue, xl",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2c&color=blue&size=xl",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "blue"
+          },
+          {
+            "title": "size",
+            "value": "xl"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0,
+        "for400plusQuantityPriceIs": 0,
+        "for800plusQuantityPriceIs": 0
+      }
+    ],
+    "b2cColumns": [
+      {
+        "field": "variant",
+        "headerName": "Variant",
+        "width": 150
+      },
+      {
+        "field": "stockStatus",
+        "headerName": "Stock Status",
+        "editable": true,
+        "type": "singleSelect",
+        "valueOptions": ["In-Stock", "Out of Stock", "Low Stock"],
+        "width": 100
+      },
+      {
+        "field": "stock",
+        "headerName": "Stock",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "costPrice",
+        "headerName": "Cost Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "mrp",
+        "headerName": "MRP",
+        "type": "number",
+        "editable": true
+      },
+      {
+        "field": "perProductPrice",
+        "headerName": "Single Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for400plusQuantityPriceIs",
+        "headerName": "400+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for800plusQuantityPriceIs",
+        "headerName": "800+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      }
+    ],
+    "b2bRows": [
+      {
+        "id": "e80fcd73-74b0-4816-86f5-fb3a8f3ee812",
+        "variant": "red, m",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2b&color=red&size=m",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "red"
+          },
+          {
+            "title": "size",
+            "value": "m"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0,
+        "for400plusQuantityPriceIs": 0,
+        "for800plusQuantityPriceIs": 0
+      },
+      {
+        "id": "6d160623-7fe8-4a2f-89a8-909da877ad40",
+        "variant": "red, xl",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2b&color=red&size=xl",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "red"
+          },
+          {
+            "title": "size",
+            "value": "xl"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0,
+        "for400plusQuantityPriceIs": 0,
+        "for800plusQuantityPriceIs": 0
+      },
+      {
+        "id": "2b74b15f-d1f6-4486-a7de-409978e300f0",
+        "variant": "blue, m",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2b&color=blue&size=m",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "blue"
+          },
+          {
+            "title": "size",
+            "value": "m"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0,
+        "for400plusQuantityPriceIs": 0,
+        "for800plusQuantityPriceIs": 0
+      },
+      {
+        "id": "6e025c7d-75a3-4da2-9370-0d5316810663",
+        "variant": "blue, xl",
+        "url": "0ce220f6-4659-4796-a62e-3bb38d68260f?userType=b2b&color=blue&size=xl",
+        "variantData": [
+          {
+            "title": "color",
+            "value": "blue"
+          },
+          {
+            "title": "size",
+            "value": "xl"
+          }
+        ],
+        "stockStatus": "In Stock",
+        "stock": 0,
+        "costPrice": 0,
+        "mrp": 0,
+        "perProductPrice": 0,
+        "for400plusQuantityPriceIs": 0,
+        "for800plusQuantityPriceIs": 0
+      }
+    ],
+    "b2bColumns": [
+      {
+        "field": "variant",
+        "headerName": "Variant",
+        "width": 150
+      },
+      {
+        "field": "stockStatus",
+        "headerName": "Stock Status",
+        "editable": true,
+        "type": "singleSelect",
+        "valueOptions": ["In-Stock", "Out of Stock", "Low Stock"],
+        "width": 100
+      },
+      {
+        "field": "stock",
+        "headerName": "Stock",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "costPrice",
+        "headerName": "Cost Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "mrp",
+        "headerName": "MRP",
+        "type": "number",
+        "editable": true
+      },
+      {
+        "field": "perProductPrice",
+        "headerName": "Single Price",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for400plusQuantityPriceIs",
+        "headerName": "400+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      },
+      {
+        "field": "for800plusQuantityPriceIs",
+        "headerName": "800+ Qty.",
+        "type": "number",
+        "editable": true,
+        "width": 100
+      }
+    ],
+    "seoTitle": "product-with-variants-with-quantityVariants",
+    "seoMetaDescription": "product-with-variants-with-quantityVariants",
+    "seoTags": ["variants", "quantity-variants"],
+    "seoSlug": "product-with-variants-with-quantityvariants",
+    "isActive": true,
+    "visibleToB2C": true,
+    "visibleToB2B": true,
+    "brandName": "C1",
+    "categories": ["C1", "C2"],
+    "subCategories": ["C1"],
+    "supSubCategories": ["C2"],
+    "images": [
+      {
+        "title": "baseImage",
+        "values": [
+          {
+            "path": "abrasive.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/08f5359e-4d51-437c-b09b-980c5dfbbb72"
+          },
+          {
+            "path": "amm.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/518d4128-8673-45c6-b594-46a09564523a"
+          }
+        ]
+      },
+      {
+        "title": "red",
+        "values": [
+          {
+            "path": "popOne.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/5a731f08-3c41-4e57-8c66-b30c39ec9cc0"
+          },
+          {
+            "path": "sectionOne.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/5368cf7f-1ffa-45bd-972f-8cb1cc51423f"
+          }
+        ]
+      },
+      {
+        "title": "blue",
+        "values": [
+          {
+            "path": "bestseller3.png",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/66deab36-975b-481f-ba28-ef8215e16c35"
+          },
+          {
+            "path": "mobile_getstarted_one.jpeg",
+            "preview": "blob:https://reactjs-admin-ecommerce.vercel.app/ccd4f058-87b7-4bc5-a490-281641bd8b42"
+          }
+        ]
+      }
+    ],
+    "productId": "0ce220f6-4659-4796-a62e-3bb38d68260f",
+    "quantityVariants": ["400", "800"]
+  }
+]

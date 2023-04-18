@@ -1,0 +1,6 @@
+export { default as HeadingAboutUs } from './HeadingAboutUs'
+export { default as SinceHerco } from './SinceHerco'
+export { default as VideoLink } from './VideoLink'
+export { default as AboutUsPage } from './AboutUsPage'
+export { default as Services } from './Services'
+export { default as MainAboutPage } from './MainAboutPage'

@@ -1,0 +1,27 @@
+1. Dynamic imports
+2. Lazy load images using next/image
+3. Specific imports 
+        //Old
+        Import _get from ‘lodash’
+
+        //New
+        Import _get from ‘lodash/get’
+
+4. Optimize next/link
+        <li>
+            <Link href="/about" prefetch={false}>
+                <a>About Us</a>
+            </Link>
+        </li>
+        <li>
+            <Link href="/blog/hello-world" prefetch={false}>>
+                <a>Blog Post</a>
+            </Link>
+        </li>
+
+5. Optimize fonts
+         font-display: swap;
+
+6. export const config = {
+  unstable_runtimeJS: false,
+}
