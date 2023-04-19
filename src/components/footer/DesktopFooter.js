@@ -109,10 +109,6 @@ const DesktopFooter = () => {
             <li className="text-[#cecece] text-lg mr-1">
               <a href="#">Transcripts</a>
             </li>
-            <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[14px]" />
-            <li className="text-[#cecece] text-lg mr-1">
-              <a href="#">License Footage</a>
-            </li>
           </ul>
 
           <div className="text-[#cecece] text-lg mt-0 mb-[20px]">
