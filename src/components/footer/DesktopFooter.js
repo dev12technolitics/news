@@ -113,17 +113,14 @@ const DesktopFooter = () => {
             <li className="text-[#cecece] text-lg mr-1">
               <a href="#">License Footage</a>
             </li>
-            <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[14px]" />
-            <li className="text-[#cecece] text-lg mr-1">
-              <a href="#">Sitemap</a>
-            </li>
-            <div className="text-[#cecece] text-lg mt-1">
-              Copyright &copy; 2022 News and Magazine WordPress Theme by{" "}
-              <a target="_blank" href="#">
-                Axilthemes
-              </a>
-            </div>
           </ul>
+
+          <div className="text-[#cecece] text-lg mt-0 mb-[20px]">
+            Copyright &copy; 2022 News and Magazine WordPress Theme by{" "}
+            <a target="_blank" href="#">
+              Axilthemes
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -6,7 +6,7 @@ import { News } from "../../data/news";
 
 export default function Newspage() {
   return (
-    <div className="flex justify-center w-full  text-center">
+    <div className="flex justify-center w-full text-center">
       <div className="container">
         <Grid container>
           <Grid item xs={12} md={6} lg={6}>
@@ -59,10 +59,13 @@ export default function Newspage() {
 
           <Grid item xs={12} md={6} lg={6}>
             <div className="p-4">
-              <div className="flex w-full justify-between">
-                <h4 className="text-3xl mt-0 font-extrabold ">Recent News</h4>
-
-                <h4 className="text-lg mt-0 font-bold">ALL RECENT NEWS</h4>
+              <div className="flex w-full justify-between items-center mt-[-40px]">
+                <h4 className="text-3xl font-extrabold ">Recent News</h4>
+                <div className="">
+                  <h4 className="singleline text-lg font-bold">
+                    ALL RECENT NEWS
+                  </h4>
+                </div>
               </div>
 
               {News?.map((item, index) => {

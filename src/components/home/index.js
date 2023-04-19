@@ -7,3 +7,4 @@ export { default as HomeProductTab } from "./HomeProductTab";
 export { default as MobileBanner } from "./MobileBanner";
 export { default as NewsDetailpage } from "./NewsDetailpage";
 export { default as PoppupModal } from "./PoppupModal";
+export { default as PostDetail } from "./PostDetail";

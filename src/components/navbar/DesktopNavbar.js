@@ -44,6 +44,7 @@ export default function DesktopNavbar({ userData }) {
     window.localStorage.setItem("userVisit", false);
     push("/");
   };
+
   return (
     <>
       <DesktopTopNavbar />
@@ -57,32 +58,32 @@ export default function DesktopNavbar({ userData }) {
           <nav className="container mx-auto">
             <div className="flex items-center h-16 justify-center space-x-2">
               <div className="w-full">
-                <ul className="relative flex w-full gap-4">
+                <div className="relative  flex w-full">
                   <Link className="cursor-pointer" href="/">
-                    <li
-                      className="group uppercase lg:text-[16px] 
+                    <div
+                      className="group uppercase ml-0 lg:text-[16px] 
                                   font-[535]
                             hover:text-theme-primary-main px-3 py-2 rounded-md leading-7"
                     >
                       Home
-                    </li>
+                    </div>
                   </Link>
                   {NAVBAR_LINKS?.map((item, index) => {
                     return (
                       <div key={index}>
                         <Link className="cursor-pointer" href={item?.link}>
-                          <li
+                          <div
                             className="group uppercase lg:text-[16px] 
                                   font-[535]
                             hover:text-theme-primary-main px-3 py-2 rounded-md leading-7"
                           >
                             {item?.name}
-                          </li>
+                          </div>
                         </Link>
                       </div>
                     );
                   })}
-                </ul>
+                </div>
               </div>
 
               <div className="p-2 border-red">

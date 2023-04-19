@@ -1,33 +1,19 @@
-import { Badge, Divider, Typography } from "@mui/material";
+import { Badge, Divider } from "@mui/material";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import { Stack } from "@mui/system";
-import Image from "next/image";
 import { Fragment, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { RiShoppingCart2Line } from "react-icons/ri";
-import { RxCross2 } from "react-icons/rx";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addManualQuantityInCart,
-  decreaseQuantityInCart,
-  increaseQuantityInCart,
-  removeFromCartByCartId,
-} from "src/redux/slices/cartSlice";
-import { handleToastOpen } from "src/redux/slices/toastSlice";
-import { formatCurrency, getPriceDataByUserType } from "src/utils/utils-fun";
-import emptyCart from "../../assets/images/empty_cart.jpeg";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { useSelector } from "react-redux";
 import { AppButton } from "../basics";
 import AppIconButton from "../basics/AppIconButton";
-import IncrementerButton from "../basics/custom-input/IncrementerButton";
-import EmptyContent from "../empty-content/EmptyContent";
 
 export default function CartSideBar() {
-  const dispatch = useDispatch();
   const [state, setState] = useState({
     left: false,
   });
-  const { userType } = useSelector((state) => state.user);
+
   const { cartItems } = useSelector((state) => state.cart);
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -39,49 +25,14 @@ export default function CartSideBar() {
 
     setState({ ...state, [anchor]: open });
   };
-  const handleDeleteCart = (item) => {
-    dispatch(
-      removeFromCartByCartId({
-        product: item,
-        userType: userType?.toLowerCase(),
-      })
-    );
-    dispatch(
-      handleToastOpen({ message: "Removed From Cart", status: "success" })
-    );
-  };
-  const handleManualAddOfQuantity = (item, value) => {
-    const payload = {
-      product: item,
-      userType: userType?.toLowerCase(),
-      quantity: Number(value) > 1 ? Number(value) : 1,
-    };
-    dispatch(addManualQuantityInCart(payload));
-  };
-  const handleIncreaseQuantity = (item) => {
-    dispatch(
-      increaseQuantityInCart({
-        product: item,
-        userType: userType?.toLowerCase(),
-      })
-    );
-  };
-  const handleDecreaseQuantity = (item) => {
-    dispatch(
-      decreaseQuantityInCart({
-        product: item,
-        userType: userType?.toLowerCase(),
-      })
-    );
-  };
+
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : 370,
+        width: anchor === "top" || anchor === "bottom" ? "auto" : 470,
         height: "600px",
       }}
       role="presentation"
-      // onKeyDown={toggleDrawer(anchor, false)}
     >
       <Divider />
 
@@ -96,29 +47,6 @@ export default function CartSideBar() {
           </span>
         </span>
       </div>
-      {cartItems?.length > 0 ? (
-        cartItems?.map((item, index) => {
-          return (
-            <CartDataList
-              key={index}
-              item={item}
-              userType={userType}
-              handleIncreaseQuantity={handleIncreaseQuantity}
-              handleDecreaseQuantity={handleDecreaseQuantity}
-              handleManualAddOfQuantity={handleManualAddOfQuantity}
-              handleDeleteCart={handleDeleteCart}
-            />
-          );
-        })
-      ) : (
-        <Box className="flex items-center justify-center">
-          <EmptyContent
-            title="Cart is empty"
-            description="Look like you have no items in your shopping cart."
-            img={emptyCart}
-          />
-        </Box>
-      )}
     </Box>
   );
 
@@ -130,7 +58,7 @@ export default function CartSideBar() {
             <AppIconButton
               Icon={
                 <Badge badgeContent={cartItems?.length} color="primary">
-                  <RiShoppingCart2Line className="text-white" />{" "}
+                  <RxHamburgerMenu size={30} />{" "}
                 </Badge>
               }
               color="white"
@@ -160,102 +88,3 @@ export default function CartSideBar() {
     </Box>
   );
 }
-
-export const CartDataList = ({
-  item,
-  userType,
-  handleIncreaseQuantity,
-  handleDecreaseQuantity,
-  handleManualAddOfQuantity,
-  handleDeleteCart,
-}) => {
-  const { title } = item;
-  const priceData = getPriceDataByUserType(item, userType);
-
-  return (
-    <Box className="relative mx-auto my-4 w-11/12 rounded-lg border border-light-grey bg-white p-2 shadow-md">
-      <Box className="flex justify-between">
-        <Box sx={{ maxWidth: "90%" }} className="flex justify-center">
-          <Stack className="flex animate-opacityAnimation items-center justify-start hover:cursor-pointer">
-            {item?.images?.values[0]?.url && (
-              <Image
-                loading="lazy"
-                src={item?.images?.values[0]?.url}
-                alt="cart"
-                width={90}
-                height={90}
-                className="rounded-lg object-cover"
-              />
-            )}
-          </Stack>
-          <Box className="pl-2">
-            <Stack>
-              <Typography variant="subtitle2" className="capitalize">
-                {title}
-              </Typography>
-              {priceData?.variantData?.length > 0 &&
-                priceData?.variantData?.map((variant, index) => {
-                  return (
-                    <Stack
-                      key={index}
-                      direction="row"
-                      alignItems="center"
-                      sx={{
-                        typography: "body2",
-                        color: "text.secondary",
-                        textTransform: "capitalize",
-                      }}
-                    >
-                      {variant?.title}
-                      {" :"}
-                      <Typography
-                        sx={{
-                          typography: "subtitle2",
-                          ml: 0.5,
-                          textTransform: "capitalize",
-                        }}
-                      >
-                        {" "}
-                        {variant?.value}{" "}
-                      </Typography>
-                      {/* <Divider orientation="vertical" sx={{ mx: 1, height: 16 }} /> */}
-                      {/* <ColorPreview /> */}
-                    </Stack>
-                  );
-                })}
-            </Stack>
-            <div className="flex justify-between py-1">
-              <Stack spacing={1}>
-                <IncrementerButton
-                  row={item}
-                  quantity={item?.quantity}
-                  onManualAddOfQuantity={handleManualAddOfQuantity}
-                  onDecrease={handleDecreaseQuantity}
-                  onIncrease={handleIncreaseQuantity}
-                  disabledDecrease={item?.quantity <= 1}
-                  disabledIncrease={false}
-                />
-              </Stack>
-              {/* <span>{item?.amount}</span> */}
-            </div>
-          </Box>
-        </Box>
-        {/* delete from cart */}
-        <Stack className="absolute right-1 top-1">
-          <AppIconButton
-            Icon={<RxCross2 />}
-            size="small"
-            onClick={() => handleDeleteCart(item)}
-          />
-        </Stack>
-        <Stack className="absolute right-2 bottom-4">
-          <Typography variant="subtitle2">
-            {formatCurrency(
-              Number(priceData?.perProductPrice * item?.quantity)
-            )}
-          </Typography>
-        </Stack>
-      </Box>
-    </Box>
-  );
-};

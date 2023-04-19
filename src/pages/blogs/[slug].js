@@ -1,19 +1,17 @@
-import { useRouter } from 'next/router'
-import { FadeRight } from 'src/components/animate'
-import { ErrorScreen } from 'src/components/basics'
-import { BlogDetailCard } from 'src/components/cards'
-import { useGetAllBlog, useGetOneBlogById } from 'src/services/blogServices'
+import { useRouter } from "next/router";
+import { FadeRight } from "src/components/animate";
+import { ErrorScreen } from "src/components/basics";
+import { BlogDetailCard } from "src/components/cards";
+import { useGetAllBlog, useGetOneBlogById } from "src/services/blogServices";
 
 const Blog = () => {
-  const { query } = useRouter()
-  const id = query?.slug?.split('-')?.pop()
+  const { query } = useRouter();
+  const id = query?.slug?.split("-")?.pop();
 
-  const { data, isLoading, isError } = useGetOneBlogById(id)
-  const { data: allBlog, isLoading: allBlogLoading } = useGetAllBlog()
+  const { data, isLoading, isError } = useGetOneBlogById(id);
+  const { data: allBlog, isLoading: allBlogLoading } = useGetAllBlog();
 
-  // if (isLoading) return <LoadingScreen />
-
-  if (isError) return <ErrorScreen />
+  if (isError) return <ErrorScreen />;
   return (
     <>
       {/* <NextSeo
@@ -32,7 +30,7 @@ const Blog = () => {
         }}
       /> */}
       <>
-        <FadeRight durationTime={'1s'}>
+        <FadeRight durationTime={"1s"}>
           <BlogDetailCard
             data={data}
             allBlog={allBlog}
@@ -42,10 +40,10 @@ const Blog = () => {
         </FadeRight>
       </>
     </>
-  )
-}
+  );
+};
 
-export default Blog
+export default Blog;
 
 // export async function getServerSideProps(context) {
 //   const id = context.query?.slug?.split('-')?.pop()

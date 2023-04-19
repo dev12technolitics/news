@@ -64,7 +64,7 @@ export default function HomePage({ banners }) {
   if (!banners?.status) return <ErrorScreen />;
 
   return (
-    <div className="">
+    <div className="mt-14">
       <FadeIn durationTime="1s">
         <Newspage />
       </FadeIn>

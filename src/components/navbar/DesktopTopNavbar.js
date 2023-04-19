@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import Image from "next/image";
 import banner from "src/assets/svg/banner.jpg";
-import Logo from "src/assets/svg/download-removebg-preview.png";
+import Logo from "src/assets/svg/Screenshotlogo.png";
 
 export default function DesktopTopNavbar() {
   return (
@@ -9,7 +9,7 @@ export default function DesktopTopNavbar() {
       <div className="container">
         <Grid container>
           <Grid item xs={12} md={4} lg={3}>
-            <div className="relative h-28 w-[60%] hidden lg:block">
+            <div className="relative h-28 w-[45%] hidden lg:block">
               <Image
                 fill
                 loading="lazy"

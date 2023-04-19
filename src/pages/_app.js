@@ -64,9 +64,7 @@ function MyApp({ Component, pageProps }) {
               ) : (
                 <div>
                   <NavbarFooterLayout>
-                    <div className="mt-14">
-                      <Component {...pageProps} />
-                    </div>
+                    <Component {...pageProps} />
                   </NavbarFooterLayout>
                 </div>
               )}
