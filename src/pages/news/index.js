@@ -1,15 +1,15 @@
 import { FadeRight } from "src/components/animate";
-import { NewsDetailpage } from "src/components/home";
-const Post = () => {
+import { NewsPage } from "src/components/news";
+const News = () => {
   return (
     <>
       <section className="">
         <FadeRight durationTime={"1s"}>
-          <NewsDetailpage />
+          <NewsPage />
         </FadeRight>
       </section>
     </>
   );
 };
 
-export default Post;
+export default News;

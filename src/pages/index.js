@@ -1,9 +1,8 @@
 // import React from 'react'
 import Head from "next/head";
 import { HomePage } from "src/components/home";
-import api from "src/services/api";
 
-export default function Home({ banners }) {
+export default function Home() {
   return (
     <section className="relative">
       <Head>
@@ -29,17 +28,8 @@ export default function Home({ banners }) {
       </Head>
 
       <div className="">
-        <HomePage banners={banners} />
+        <HomePage />
       </div>
     </section>
   );
-}
-export async function getServerSideProps({ req }) {
-  const bannerRes = await api.get("/banner/all");
-  const banners = bannerRes.data;
-  return {
-    props: {
-      banners,
-    },
-  };
 }

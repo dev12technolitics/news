@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { NewsDetail } from "../../data/NewsDetail";
 
-export default function NewsDetailpage() {
-  const redirectUrl = `/post/1`;
+export default function NewsPage() {
+  const redirectUrl = `/news/1`;
   return (
     <div className="flex justify-center w-full text-center mt-14">
       <div className="container">

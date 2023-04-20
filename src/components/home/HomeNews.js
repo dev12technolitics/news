@@ -4,7 +4,7 @@ import { FiShare2 } from "react-icons/fi";
 import Pic from "../../assets/svg/image.jpg";
 import { News } from "../../data/news";
 
-export default function Newspage() {
+export default function HomeNews() {
   return (
     <div className="flex justify-center w-full text-center">
       <div className="container">
@@ -20,11 +20,6 @@ export default function Newspage() {
                   alt="Sample image"
                 />
               </div>
-
-              {/* <h4 className="text-3xl font-bold flex text-justify my-3.5">
-                VR Is the Use of Computer Technology to Create a Simulated
-                Environment.
-              </h4> */}
 
               <div className="flex text-justify w-full text-center">
                 <a className="link text-4xl font-bold my-3.5">

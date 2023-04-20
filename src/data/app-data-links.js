@@ -7,8 +7,8 @@ import {
 
 export const NAVBAR_LINKS = [
   {
-    link: "/post",
-    name: "Post",
+    link: "/news",
+    name: "News",
   },
   {
     link: "/business",

@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { NAVBAR_LINKS } from "src/data/app-data-links";
 import { logout } from "src/redux/slices/userSlice";
 import { useGetAllCategories } from "src/services/categoryServices";
-import { CartSideMenuBar } from "../cart";
 import DesktopTopNavbar from "./DesktopTopNavbar";
 export default function DesktopNavbar({ userData }) {
   const { push, pathname } = useRouter();
@@ -86,9 +85,7 @@ export default function DesktopNavbar({ userData }) {
                 </div>
               </div>
 
-              <div className="p-2 border-red">
-                <CartSideMenuBar />
-              </div>
+              <div className="p-2 border-red">{/* <CartSideMenuBar /> */}</div>
             </div>
           </nav>
         </div>

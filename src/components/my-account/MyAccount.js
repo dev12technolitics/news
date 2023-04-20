@@ -1,46 +1,45 @@
-import { useState, Fragment, useEffect } from 'react'
-import dummyImage from '../../assets/images/dummy_pic.png'
-import { FaHistory, FaAddressBook, FaUserAlt } from 'react-icons/fa'
-import { BsHeartFill } from 'react-icons/bs'
-import { MdLogout, MdLocationPin } from 'react-icons/md'
-import Box from '@mui/material/Box'
-import { FadeIn } from '../animate'
-import { useRouter } from 'next/router'
-import Image from 'next/image'
-import MyAddresses from './MyAddress'
-import Myprofile from './Myprofile'
-import MyWishlist from './MyWishlist'
-import OrderHistory from './OrderHistory'
-import { logout } from 'src/redux/slices/userSlice'
-import { useDispatch } from 'react-redux'
-import Link from 'next/link'
+import Box from "@mui/material/Box";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { Fragment, useEffect, useState } from "react";
+import { BsHeartFill } from "react-icons/bs";
+import { FaAddressBook, FaHistory, FaUserAlt } from "react-icons/fa";
+import { MdLocationPin, MdLogout } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { logout } from "src/redux/slices/userSlice";
+import dummyImage from "../../assets/images/dummy_pic.png";
+import { FadeIn } from "../animate";
+import MyAddresses from "./MyAddress";
+import Myprofile from "./Myprofile";
+import MyWishlist from "./MyWishlist";
 // import { getLoginStatus } from "../../redux/slices/contextItems";
 
 export default function MyAccount({ userData, userType }) {
   //other functions
-  const dispatch = useDispatch()
-  const { push, query } = useRouter()
+  const dispatch = useDispatch();
+  const { push, query } = useRouter();
 
-  const [currentTab, setCurrentTab] = useState('my-profile')
+  const [currentTab, setCurrentTab] = useState("my-profile");
   useEffect(() => {
     if (query?.tab !== undefined) {
-      setCurrentTab(query?.tab)
+      setCurrentTab(query?.tab);
     }
-  }, [query])
+  }, [query]);
   const tabValues = [
-    { value: 'my-profile', Icon: FaUserAlt },
-    { value: 'address-book', Icon: FaAddressBook },
-    { value: 'wishlist', Icon: BsHeartFill },
-    { value: 'order-history', Icon: FaHistory },
+    { value: "my-profile", Icon: FaUserAlt },
+    { value: "address-book", Icon: FaAddressBook },
+    { value: "wishlist", Icon: BsHeartFill },
+    { value: "order-history", Icon: FaHistory },
     // { value: 'order-tracking', Icon: MdTrackChanges },
-  ]
+  ];
 
   //logout function
   const handleLogout = () => {
-    dispatch(logout())
-    window.localStorage.setItem('userVisit', false)
-    push('/')
-  }
+    dispatch(logout());
+    window.localStorage.setItem("userVisit", false);
+    push("/");
+  };
   return (
     <Box className="mx-auto md:container">
       <Box className="">
@@ -70,7 +69,7 @@ export default function MyAccount({ userData, userType }) {
               </p>
               {userData?.city && (
                 <p className="mt-2 flex items-center text-white">
-                  <MdLocationPin fontSize={'20px'} color={'white'} />
+                  <MdLocationPin fontSize={"20px"} color={"white"} />
                   <span className="pl-1 text-sm font-normal capitalize tracking-wide">
                     {userData?.city}
                   </span>
@@ -88,24 +87,24 @@ export default function MyAccount({ userData, userType }) {
               <div className="rounded-lg shadow-shadow-primary">
                 <div className="py-5">
                   {tabValues?.map((item, i) => {
-                    const Icon = item?.Icon
+                    const Icon = item?.Icon;
                     return (
                       <div
                         key={i}
                         className={`border-l-4 py-4 pl-2 text-sm capitalize tracking-wider ${
                           currentTab == item?.value
-                            ? 'border-theme-primary-main bg-gradient-to-r from-[#FFFDFD] to-[#EDEDED] font-custom-500 text-theme-primary-main'
-                            : 'border-white font-normal'
+                            ? "border-theme-primary-main bg-gradient-to-r from-[#FFFDFD] to-[#EDEDED] font-custom-500 text-theme-primary-main"
+                            : "border-white font-normal"
                         } flex items-center hover:cursor-pointer`}
                         onClick={() => setCurrentTab(item?.value)}
                       >
                         <Icon className="mr-3" />
-                        {item?.value?.replace('-', ' ')}
+                        {item?.value?.replace("-", " ")}
                       </div>
-                    )
+                    );
                   })}
                 </div>
-                <hr className="mx-auto border" width={'90%'} />
+                <hr className="mx-auto border" width={"90%"} />
 
                 <div className="py-5 px-4">
                   <div
@@ -120,25 +119,23 @@ export default function MyAccount({ userData, userType }) {
             </div>
             <div className="col-span-3 rounded-lg py-2 px-6 shadow-shadow-primary">
               <div className="py-5">
-                {currentTab == 'my-profile' && (
-                  <FadeIn durationTime={'1s'}>
+                {currentTab == "my-profile" && (
+                  <FadeIn durationTime={"1s"}>
                     <Myprofile userData={userData} userType={userType} />
                   </FadeIn>
-                )}{' '}
-                {currentTab == 'address-book' && (
-                  <FadeIn durationTime={'1s'}>
+                )}{" "}
+                {currentTab == "address-book" && (
+                  <FadeIn durationTime={"1s"}>
                     <MyAddresses userData={userData} />
                   </FadeIn>
                 )}
-                {currentTab == 'wishlist' && (
-                  <FadeIn durationTime={'1s'}>
+                {currentTab == "wishlist" && (
+                  <FadeIn durationTime={"1s"}>
                     <MyWishlist userData={userData} />
                   </FadeIn>
                 )}
-                {currentTab == 'order-history' && (
-                  <FadeIn durationTime={'1s'}>
-                    <OrderHistory userData={userData} userType={userType} />
-                  </FadeIn>
+                {currentTab == "order-history" && (
+                  <FadeIn durationTime={"1s"}></FadeIn>
                 )}
               </div>
             </div>
@@ -150,7 +147,7 @@ export default function MyAccount({ userData, userType }) {
           <div>
             <div className="p-5">
               {tabValues?.map((item, i) => {
-                const Icon = item?.Icon
+                const Icon = item?.Icon;
                 return (
                   <Fragment key={i}>
                     <Link href={`/account/${item?.value}`}>
@@ -159,11 +156,11 @@ export default function MyAccount({ userData, userType }) {
                          hover:cursor-pointer flex items-center`}
                       >
                         <Icon className="mr-3" />
-                        {item?.value?.replace('-', ' ')}
+                        {item?.value?.replace("-", " ")}
                       </div>
                     </Link>
                   </Fragment>
-                )
+                );
               })}
               <div className="py-5 pl-2">
                 <div
@@ -179,5 +176,5 @@ export default function MyAccount({ userData, userType }) {
         </div>
       </Box>
     </Box>
-  )
+  );
 }

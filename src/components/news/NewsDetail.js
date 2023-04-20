@@ -9,7 +9,7 @@ import { NewsDetail } from "../../data/NewsDetail";
 import { FadeIn } from "../animate";
 import { AppCarousel } from "../basics";
 
-function PostDetail() {
+function Detail() {
   return (
     <>
       <Grid container>
@@ -124,7 +124,7 @@ function PostDetail() {
           </Grid>
 
           <Grid item lg={3} md={3} sm={12}>
-            <BlogOtherData />
+            <OtherData />
           </Grid>
         </Grid>
       </div>
@@ -132,9 +132,9 @@ function PostDetail() {
   );
 }
 
-export default PostDetail;
+export default Detail;
 
-export const BlogOtherData = () => {
+export const OtherData = () => {
   return (
     <Box
       sx={{
