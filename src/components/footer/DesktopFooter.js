@@ -105,19 +105,19 @@ const DesktopFooter = () => {
               <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
             </li>
             <li className="text-[#cecece] text-lg">
-              <a href="#">Contact Us</a>
+              <Link href="/contact-us">Contact Us</Link>
             </li>
             <li>
               <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
             </li>
             <li className="text-[#cecece] text-lg">
-              <a href="#">Terms And Conditions</a>
+              <Link href="/privacy-policy">Terms And Conditions</Link>
             </li>
             <li>
               <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
             </li>
             <li className="text-[#cecece] text-lg">
-              <a href="#">Privacy Policy</a>
+              <Link href="/privacy-policy">Privacy Policy</Link>
             </li>
           </ul>
 

@@ -14,8 +14,11 @@ function Detail() {
     <>
       <Grid container className="mt-16">
         <Grid item lg={12} sm={12}>
-          <div className="bg-[#F9F9F9] flex justify-center py-16 items-center">
-            <h1 className="text-4xl mt-0 mb-0 leading-6 tracking-normal text-slate-700 md:leading-10 ">
+          <div className="bg-[#F9F9F9] flex justify-center py-16 items-center text-center">
+            <h1
+              className="text-4xl mt-0 mb-0 leading-6 tracking-normal text-slate-700 md:leading-10
+             lg:w-[900px] md:w-[700px]"
+            >
               Why Some People Almost Always Make/Save Money With World
             </h1>
           </div>
@@ -23,8 +26,14 @@ function Detail() {
       </Grid>
 
       <div className="mx-auto my-10 container">
-        <Grid container>
-          <Grid item lg={9} md={9} sm={12}>
+        <div class="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1">
+          <div
+            className="lg:col-span-5 md:col-span-4"
+            item
+            lg={9}
+            md={9}
+            sm={12}
+          >
             <div className="absolute z-10 mt-5 flex flex-col items-center bg-gray-200 px-4 py-2">
               <div className="">
                 <span className="text-lg font-semibold text-theme-primary-main">
@@ -121,12 +130,12 @@ function Detail() {
                 />
               </div>
             </div>
-          </Grid>
+          </div>
 
-          <Grid item lg={3} md={3} sm={12}>
+          <div className="lg:col-span-2">
             <OtherData />
-          </Grid>
-        </Grid>
+          </div>
+        </div>
       </div>
     </>
   );
@@ -141,7 +150,7 @@ export const OtherData = () => {
         padding: {
           xs: "0px",
           sm: "0px",
-          md: "0 0 0 40px ",
+          md: "0 0 0 0px ",
           lg: "0 0 0 40px",
         },
       }}

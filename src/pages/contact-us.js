@@ -1,5 +1,4 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Grid } from "@mui/material";
 import { Stack } from "@mui/system";
 import { DefaultSeo, LogoJsonLd } from "next-seo";
 import PropTypes from "prop-types";
@@ -89,8 +88,8 @@ export default function ContactUs() {
       <LogoJsonLd logo={SITE_LOGO} url={SITE_URL} />
       <FadeRight durationTime={"1s"}>
         <div className="bg-[#F9F9F9] mt-16">
-          <Grid container>
-            <Grid item xs={12} md={8} lg={8}>
+          <div className="grid grid-cols-6">
+            <div className=" md:col-span-6 lg:col-span-4">
               <div className="pt-0 sm:pt-10">
                 <Stack className="bg-[#fff] mx-24 my-10">
                   <div className="py-20 rounded-2xl w-full px-16 h-full mx-auto">
@@ -153,9 +152,9 @@ export default function ContactUs() {
                   </div>
                 </Stack>
               </div>
-            </Grid>
-            <Grid item xs={12} md={4} lg={4}>
-              <div className="pt-0 sm:pt-10 pr-24 h-full flex justify-center items-center">
+            </div>
+            <div className=" md:col-span-6 lg:col-span-2">
+              <div className="pt-0 sm:pt-10 lg:pr-24 md:pr-24 md:pl-24 lg:pl-0 h-full flex justify-center items-center">
                 <Stack className="bg-[#fff] my-10 h-fit w-full">
                   <div className="py-16 rounded-2xl w-full px-12  h-full mx-auto">
                     <div className="capitalize w-full">
@@ -257,8 +256,8 @@ export default function ContactUs() {
                   </div>
                 </Stack>
               </div>
-            </Grid>
-          </Grid>
+            </div>
+          </div>
         </div>
       </FadeRight>
     </>

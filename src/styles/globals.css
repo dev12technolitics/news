@@ -308,3 +308,13 @@ input[type='search']::-webkit-search-cancel-button {
   border-width:3px;
   border-color: rgb(238 2 2);
 }
+
+
+main {
+  columns: 400px;
+  column-gap: 20px; 
+}
+article {
+  break-inside: avoid-column;
+  margin-bottom: 1rem; 
+}

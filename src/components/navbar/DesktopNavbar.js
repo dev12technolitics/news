@@ -22,7 +22,6 @@ export default function DesktopNavbar() {
   return (
     <>
       <DesktopTopNavbar />
-      {console.log("scrolled", scrolled)}
       <div
         className={`fixed  
           ${scrolled === true ? `top-0` : `top-40`}
