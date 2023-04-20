@@ -7,7 +7,7 @@ import { News } from "../../data/news";
 export default function HomeNews() {
   return (
     <div className="flex justify-center w-full text-center">
-      <div className="container">
+      <div className="container mt-20">
         <Grid container>
           <Grid item xs={12} md={6} lg={6}>
             <div className="p-4 hoverline">

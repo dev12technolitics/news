@@ -11,8 +11,8 @@ export const NAVBAR_LINKS = [
     name: "News",
   },
   {
-    link: "/business",
-    name: "Business",
+    link: "/contact-us",
+    name: "Contact Us",
   },
   {
     link: "/lifestyle",

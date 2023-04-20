@@ -7,7 +7,7 @@ export default function NewsPage() {
   const redirectUrl = `/news/1`;
   return (
     <div className="flex justify-center w-full text-center mt-14">
-      <div className="container">
+      <div className="container mt-20">
         <Grid container>
           {NewsDetail?.map((item, index) => {
             return (

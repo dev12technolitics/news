@@ -280,3 +280,31 @@ input[type='search']::-webkit-search-cancel-button {
     max-width: 1430px !important
   }
 }
+
+.css-j1djrx-MuiFormControl-root-MuiTextField-root .MuiOutlinedInput-root {
+  border-radius: 0px!important
+}
+
+.css-wvyftd-MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 0px!important
+}
+.css-8o4j5t-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root {
+  border-radius: 0px!important
+}
+
+.css-j1djrx-MuiFormControl-root-MuiTextField-root .MuiInputLabel-root.Mui-focused{
+  color:rgb(238 2 2);
+}
+.css-2szzv2-MuiFormControl-root-MuiTextField-root .MuiInputLabel-root.Mui-focused{
+  color:rgb(238 2 2);
+}
+
+.css-u130qk-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
+  border-width:3px;
+  border-color: rgb(238 2 2);
+}
+
+.css-wvyftd-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
+  border-width:3px;
+  border-color: rgb(238 2 2);
+}

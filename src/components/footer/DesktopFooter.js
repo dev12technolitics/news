@@ -74,40 +74,50 @@ const DesktopFooter = () => {
               flexWrap: "wrap",
             }}
           >
-            <li className="text-[#cecece] text-lg mr-1">
-              <a href="#">Contact Us</a>
-            </li>
-            <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[14px]" />
-            <li className="text-[#cecece] text-lg mr-1">
+            <li className="text-[#cecece] text-lg">
               <a href="#">Terms of Use</a>
             </li>
-            <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[14px]" />
-            <li className="text-[#cecece] text-lg mr-1">
+            <li>
+              <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
+            </li>
+            <li className="text-[#cecece] text-lg">
               <a href="#">Accessibility &#038; CC</a>
             </li>
-            <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[14px]" />
-            <li className="text-[#cecece] text-lg mr-1">
+            <li>
+              <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
+            </li>
+            <li className="text-[#cecece] text-lg">
               <a href="#">AdChoices</a>
             </li>
-            <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[14px]" />
-            <li className="text-[#cecece] text-lg mr-1">
+            <li>
+              <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
+            </li>
+            <li className="text-[#cecece] text-lg">
               <a href="#">Modern Slavery Act Statement</a>
             </li>
-            <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[14px]" />
-            <li className="text-[#cecece] text-lg mr-1">
-              <a href="#">Advertise with us</a>
+            <li>
+              <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
             </li>
-            <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[14px]" />
-            <li className="text-[#cecece] text-lg mr-1">
-              <a href="#">Papr Store</a>
+            <li className="text-[#cecece] text-lg">
+              <a href="#">Become A Reporter</a>
             </li>
-            <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[14px]" />
-            <li className="text-[#cecece] text-lg mr-1">
-              <a href="#">Newsletters</a>
+            <li>
+              <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
             </li>
-            <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[14px]" />
-            <li className="text-[#cecece] text-lg mr-1">
-              <a href="#">Transcripts</a>
+            <li className="text-[#cecece] text-lg">
+              <a href="#">Contact Us</a>
+            </li>
+            <li>
+              <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
+            </li>
+            <li className="text-[#cecece] text-lg">
+              <a href="#">Terms And Conditions</a>
+            </li>
+            <li>
+              <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
+            </li>
+            <li className="text-[#cecece] text-lg">
+              <a href="#">Privacy Policy</a>
             </li>
           </ul>
 

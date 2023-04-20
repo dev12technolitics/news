@@ -1,18 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { NAVBAR_LINKS } from "src/data/app-data-links";
-import { logout } from "src/redux/slices/userSlice";
-import { useGetAllCategories } from "src/services/categoryServices";
+import { NAVBAR_LINKS } from "../../data/app-data-links";
+import { SideMenuBar } from "../home";
 import DesktopTopNavbar from "./DesktopTopNavbar";
-export default function DesktopNavbar({ userData }) {
+export default function DesktopNavbar() {
   const { push, pathname } = useRouter();
-  const dispatch = useDispatch();
-  const { data } = useGetAllCategories();
-  const [anchorEl, setAnchorEl] = useState(null);
   const [scrolled, setScrolled] = useState(false);
-  const [search, setSearch] = useState("");
   const changeNavbarShadow = () => {
     if (window.scrollY >= 80) {
       setScrolled(true);
@@ -20,35 +14,19 @@ export default function DesktopNavbar({ userData }) {
       setScrolled(false);
     }
   };
+
   useEffect(() => {
     window.addEventListener("scroll", changeNavbarShadow);
-  }, []);
-
-  const handleSearch = (e) => {
-    if (e.code === "Enter" || e.code === "NumpadEnter" || e.which === 13) {
-      e.preventDefault();
-      push(`/p?search=${search}`);
-    }
-  };
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  //logout function
-  const handleLogout = () => {
-    dispatch(logout());
-    window.localStorage.setItem("userVisit", false);
-    push("/");
-  };
+  }, [scrolled]);
 
   return (
     <>
       <DesktopTopNavbar />
+      {console.log("scrolled", scrolled)}
       <div
-        className="w-screen z-50 py-4 transition-all duration-300"
+        className={`fixed  
+          ${scrolled === true ? `top-0` : `top-40`}
+          w-full py-2 scroll-smooth bg-white transition-all duration-500 flex justify-center items-center z-20`}
         style={{
           boxShadow: "0 0 10px rgba(0,0,0,0.1)",
         }}
@@ -85,7 +63,10 @@ export default function DesktopNavbar({ userData }) {
                 </div>
               </div>
 
-              <div className="p-2 border-red">{/* <CartSideMenuBar /> */}</div>
+              <div className="p-2 border-red">
+                {" "}
+                <SideMenuBar />
+              </div>
             </div>
           </nav>
         </div>

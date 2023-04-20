@@ -12,7 +12,7 @@ import { AppCarousel } from "../basics";
 function Detail() {
   return (
     <>
-      <Grid container>
+      <Grid container className="mt-16">
         <Grid item lg={12} sm={12}>
           <div className="bg-[#F9F9F9] flex justify-center py-16 items-center">
             <h1 className="text-4xl mt-0 mb-0 leading-6 tracking-normal text-slate-700 md:leading-10 ">
