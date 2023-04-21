@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Router, { useRouter } from "next/router";
-import logopng from "../../assets/RoboPowerImages/logo.png";
+import Logo from "src/assets/svg/Screenshotlogo.png";
 import MobileSideBar from "./MobileSideBar";
 
 export default function MobileNavbar({ userData, userType }) {
@@ -40,13 +40,14 @@ export default function MobileNavbar({ userData, userType }) {
               <MobileSideBar userType={userType} userData={userData} />
             )}
           </div>
+
           <div className="flex items-start w-full mt-1">
             <div className="flex w-full justify-center hover:cursor-pointer">
               <Link href={"/"}>
                 <div>
                   <Image
                     loading="lazy"
-                    src={logopng}
+                    src={Logo}
                     alt="Picture of the author"
                     width={80}
                     height={35}
@@ -56,9 +57,6 @@ export default function MobileNavbar({ userData, userType }) {
             </div>
           </div>
           <div />
-          <div className="cursor-pointer text-xl px-2">
-            {/* <CartSideBar /> */}
-          </div>
         </div>
       </div>
     </>

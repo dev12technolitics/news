@@ -8,7 +8,7 @@ export default function DesktopNavbar() {
   const { push, pathname } = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const changeNavbarShadow = () => {
-    if (window.scrollY >= 80) {
+    if (window.scrollY >= 170) {
       setScrolled(true);
     } else {
       setScrolled(false);
@@ -23,9 +23,9 @@ export default function DesktopNavbar() {
     <>
       <DesktopTopNavbar />
       <div
-        className={`fixed  
-          ${scrolled === true ? `top-0` : `top-40`}
-          w-full py-2 scroll-smooth bg-white transition-all duration-500 flex justify-center items-center z-20`}
+        className={`  
+          ${scrolled === true ? `top-0 fixed` : `top-40`}
+          w-full py-2 scroll-smooth bg-white flex justify-center items-center z-20`}
         style={{
           boxShadow: "0 0 10px rgba(0,0,0,0.1)",
         }}

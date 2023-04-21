@@ -1,29 +1,29 @@
 // import React from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { FOOTER_LINKS } from 'src/data/app-data-links'
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { FOOTER_LINKS } from "src/data/app-data-links";
 
 const MobileFooter = () => {
   return (
     <div>
       <div className="mobile_slider shadow-shadow-primary md:hidden block w-full bottom-0 bg-white z-10 fixed">
-        <div className="grid grid-cols-4 w-full bg-white pt-2 pb-1 justify-center">
+        <div className="grid grid-cols-3 w-full bg-white pt-2 pb-1 justify-center">
           <MobileFooterList list={FOOTER_LINKS} />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MobileFooter
+export default MobileFooter;
 
 const MobileFooterList = ({ list = [] }) => {
-  const router = useRouter()
-  let currentPath = router?.pathname
+  const router = useRouter();
+  let currentPath = router?.pathname;
   return (
     <>
       {list?.map((item) => {
-        const Icon = item?.icon
+        const Icon = item?.icon;
         return (
           <div className="flex justify-center " key={item.path}>
             <Link href={item.path}>
@@ -41,8 +41,8 @@ const MobileFooterList = ({ list = [] }) => {
               </div>
             </Link>
           </div>
-        )
+        );
       })}
     </>
-  )
-}
+  );
+};

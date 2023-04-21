@@ -6,8 +6,8 @@ export default function NewsPage() {
   const redirectUrl = `/news/1`;
   return (
     <>
-      <div className="flex justify-center w-full text-center mt-14">
-        <div className="container mt-20">
+      <div className="flex justify-center w-full text-center">
+        <div className="container mt-20 md:mx-0 mx-4">
           <main>
             {NewsDetail?.map((item, index) => {
               return (
@@ -24,11 +24,10 @@ export default function NewsPage() {
                           alt="Sample image"
                         />
                       </div>
-
-                      <div className="w-[200px] mt-[20px]">
+                      <div className="w-[200px] mt-2.5">
                         <div
                           className="px-4 py-1 font-sm w-fit
-                  font-semibold mb-4 text-white flex text-center justify-center"
+                                font-semibold text-white flex text-center justify-center"
                           style={{
                             backgroundColor:
                               index % 2 == 0
@@ -44,13 +43,16 @@ export default function NewsPage() {
                         </div>
                       </div>
 
-                      <div className="flex text-justify w-full text-center">
-                        <a className="link text-3xl font-bold my-3.5">
+                      <div className="flex md:text-justify text-left w-full">
+                        <a className="link text-2xl font-bold mt-3.5">
                           <span className="underlinehead">{item.title}</span>
                         </a>
                       </div>
 
-                      <h5 className="text-lg font-normal flex text-justify my-3.5">
+                      <h5
+                        className="text-lg font-normal 
+                    flex md:text-justify text-left my-3.5 leading-[1.50rem]"
+                      >
                         {item.detail}
                       </h5>
                     </div>

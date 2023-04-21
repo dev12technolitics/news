@@ -12,23 +12,25 @@ import { AppCarousel } from "../basics";
 function Detail() {
   return (
     <>
-      <Grid container className="mt-16">
+      <Grid container>
         <Grid item lg={12} sm={12}>
-          <div className="bg-[#F9F9F9] flex justify-center py-16 items-center text-center">
-            <h1
-              className="text-4xl mt-0 mb-0 leading-6 tracking-normal text-slate-700 md:leading-10
-             lg:w-[900px] md:w-[700px]"
-            >
-              Why Some People Almost Always Make/Save Money With World
-            </h1>
+          <div className="bg-[#F9F9F9] flex justify-center pt-24 md:pt-16 pb-12 items-center text-start w-full">
+            <div className="container">
+              <h1
+                className="text-3xl md:text-4xl mt-0 mb-0
+              px-4 md:px-0 leading-6 tracking-normal text-slate-700 leading-[2.3rem] md:leading-10"
+              >
+                Why Some People Almost Always Make/Save Money With World
+              </h1>
+            </div>
           </div>
         </Grid>
       </Grid>
 
       <div className="mx-auto my-10 container">
-        <div class="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1">
+        <div class="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 grid-cols-1">
           <div
-            className="lg:col-span-5 md:col-span-4"
+            className="lg:col-span-5 md:col-span-4 px-4 md:px-0"
             item
             lg={9}
             md={9}
@@ -58,8 +60,8 @@ function Detail() {
               />
             </div>
 
-            <div className="text-xl font-medium text-[#494e51]">
-              <p style={{ textAlign: "justify" }}>
+            <div className="text-lg md:text-xl  font-medium text-[#494e51]">
+              <p className="mb-0 text-left md:text-justify">
                 Moms are the ones who bandage our boo-boos when we’re little and
                 continue to take care of us as we get older—often sacrificing
                 their own needs so they can help with ours. Cruising on a bike
@@ -84,7 +86,7 @@ function Detail() {
                   rel="noreferrer"
                   // href={`https://www.facebook.com/sharer.php?u=${socialSharePath}`}
                 >
-                  <button className="cursor-poinetr mr-3 inline-flex items-center space-x-2 bg-[#4080FF] p-5 font-semibold text-white">
+                  <button className="cursor-poinetr mr-3 inline-flex items-center space-x-2 bg-[#4080FF] p-4 md:p-5 font-semibold text-white">
                     <FaFacebookF size={20} />
                   </button>
                 </a>
@@ -93,7 +95,7 @@ function Detail() {
                   rel="noreferrer"
                   // href={`https://api.whatsapp.com/send?text=${socialSharePath}`}
                 >
-                  <button className="cursor-poinetr mr-3 inline-flex items-center space-x-2 bg-[#4fce5d] p-5  font-semibold text-white">
+                  <button className="cursor-poinetr mr-3 inline-flex items-center space-x-2 bg-[#4fce5d] p-4 md:p-5 font-semibold text-white">
                     <BsWhatsapp size={20} />
                   </button>
                 </a>
@@ -102,7 +104,7 @@ function Detail() {
                   rel="noreferrer"
                   // href={`https://twitter.com/intent/tweet?text=${socialSharePath}`}
                 >
-                  <button className="cursor-poinetr mr-3 inline-flex items-center space-x-2 bg-[#40BFF5] p-5  font-semibold text-white">
+                  <button className="cursor-poinetr mr-3 inline-flex items-center space-x-2 bg-[#40BFF5] p-4 md:p-5  font-semibold text-white">
                     <BsTwitter size={20} />
                   </button>
                 </a>
@@ -112,27 +114,29 @@ function Detail() {
                   rel="noreferrer"
                   //   href={`https://www.instagram.com/?url=${socialSharePath}`}
                 >
-                  <button className="cursor-poinetr inline-flex items-center space-x-2 bg-[#FF9C31] p-5  font-semibold text-white">
+                  <button className="cursor-poinetr inline-flex items-center space-x-2 bg-[#FF9C31] p-4 md:p-5  font-semibold text-white">
                     <BsInstagram size={20} />
                   </button>
                 </a>
               </div>
             </Box>
 
-            <div className="py-4">
-              <div className="relative h-[250px] w-[700px] py-4 w-full animate-opacityAnimation">
-                <Image
-                  fill
-                  alt="alt"
-                  src={PicOne}
-                  loading="lazy"
-                  className="w-full h-full object-covor"
-                />
+            <div className="pt-0 md:pt-4 pb-4 ">
+              <div className="h-[115px] md:h-[250px] md:w-3/4 w-full">
+                <div className="relative py-4 w-full h-full border-2 border-red">
+                  <Image
+                    fill
+                    alt="alt"
+                    src={PicOne}
+                    loading="lazy"
+                    className="object-covor"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 md:px-0 px-4 mt-6 md:mt-0 ">
             <OtherData />
           </div>
         </div>
@@ -195,7 +199,7 @@ export const OtherData = () => {
         </div>
         <div className="relative mt-4 ">
           <div className="relative flex  hover:cursor-pointer hoverline">
-            <div className="relative mr-2.5 h-28 w-28 shrink-0 animate-opacityAnimation overflow-hidden">
+            <div className="relative mr-2.5 md:h-28 md:w-28 h-20 w-20 shrink-0 animate-opacityAnimation overflow-hidden">
               <Image
                 fill
                 src={Pic}
@@ -205,7 +209,7 @@ export const OtherData = () => {
             </div>
 
             <div className="w-full">
-              <div className="flex text-justify w-full text-center">
+              <div className="flex md:text-justify w-full text-left">
                 <a className="text-lg capitalize">
                   <span className="underlinehead font-bold">
                     {" "}

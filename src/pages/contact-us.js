@@ -87,17 +87,17 @@ export default function ContactUs() {
       <DefaultSeo {...GlobalSEO.global} {...GlobalSEO["/contact-us"]} />
       <LogoJsonLd logo={SITE_LOGO} url={SITE_URL} />
       <FadeRight durationTime={"1s"}>
-        <div className="bg-[#F9F9F9] mt-16">
+        <div className="bg-[#F9F9F9]">
           <div className="grid grid-cols-6">
-            <div className=" md:col-span-6 lg:col-span-4">
+            <div className=" md:col-span-6 lg:col-span-4 sm:col-span-6 col-span-6">
               <div className="pt-0 sm:pt-10">
-                <Stack className="bg-[#fff] mx-24 my-10">
-                  <div className="py-20 rounded-2xl w-full px-16 h-full mx-auto">
+                <Stack className="bg-[#fff] md:mx-24 mx-4 md:my-10 mt-[4.5rem]">
+                  <div className="py-8 md:py-20 rounded-2xl w-full md:px-16 px-4 h-full mx-auto">
                     <div className="capitalize w-full">
-                      <h1 className="font-bold text-lg md:text-3xl capitalize mt-0">
+                      <h1 className="font-bold text-md md:text-3xl capitalize mt-0 ">
                         Send Us a Message
                       </h1>
-                      <h5 className="font-robo text-xl font-normal mt-2 text-[#6b7074]">
+                      <h5 className="font-robo md:text-xl text-lg font-normal md:mt-2 mt-[-7px] text-[#6b7074]">
                         Your email address will not be published.
                         <br /> All the fields are required.
                       </h5>
@@ -108,7 +108,14 @@ export default function ContactUs() {
                         methods={methods}
                         onSubmit={handleSubmit(onSubmit)}
                       >
-                        <Stack spacing={4}>
+                        <Stack
+                          spacing={{
+                            xs: 2,
+                            sm: 2,
+                            md: 4,
+                            lg: 4,
+                          }}
+                        >
                           <RHFTextField
                             sx={{ background: "white" }}
                             name="your_name"
@@ -153,19 +160,22 @@ export default function ContactUs() {
                 </Stack>
               </div>
             </div>
-            <div className=" md:col-span-6 lg:col-span-2">
-              <div className="pt-0 sm:pt-10 lg:pr-24 md:pr-24 md:pl-24 lg:pl-0 h-full flex justify-center items-center">
+            <div className="sm:col-span-6 col-span-6 md:col-span-6 lg:col-span-2">
+              <div
+                className="pt-0 sm:pt-10 lg:pr-24 md:pr-24 md:pl-24 lg:pl-0 
+             md:h-full h-fit  flex justify-center items-center mx-4 md:mx-0 my-0"
+              >
                 <Stack className="bg-[#fff] my-10 h-fit w-full">
-                  <div className="py-16 rounded-2xl w-full px-12  h-full mx-auto">
+                  <div className="py-8 md:py-16 rounded-2xl w-full px-4 md:px-12  h-full mx-auto">
                     <div className="capitalize w-full">
-                      <h1 className="font-bold text-lg md:text-3xl capitalize mt-0">
+                      <h1 className="font-bold text-2xl md:text-3xl capitalize mt-0">
                         Contact Information
                       </h1>
-                      <h5 className="font-robo text-xl font-normal mt-2 text-[#6b7074]">
+                      <h5 className="text-lg md:text-xl font-normal md:mt-2 mt-[-10px]   text-[#6b7074]">
                         Theodore Lowe, Ap #867-859
                         <br /> Sit Rd, Azusa New York
                       </h5>
-                      <h1 className="font-bold text-md md:text-xl capitalize mt-0">
+                      <h1 className="font-bold text-lg md:text-xl capitalize md:mt-0 mt-[-10px]">
                         We Are Available 24/ 7. Call Now.
                       </h1>
                       <div className="mb-2">
@@ -210,7 +220,7 @@ export default function ContactUs() {
                         </a>
                       </div>
 
-                      <h1 className="font-bold text-md md:text-xl capitalize mt-10">
+                      <h1 className="font-bold text-lg md:text-xl capitalize md:mt-10 mt-6">
                         Find us here
                       </h1>
                       <div>

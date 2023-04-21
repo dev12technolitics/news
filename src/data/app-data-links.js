@@ -2,7 +2,6 @@ import {
   AiOutlineAppstore,
   AiOutlineHome,
   AiOutlineShoppingCart,
-  AiOutlineUser,
 } from "react-icons/ai";
 
 export const NAVBAR_LINKS = [
@@ -31,19 +30,14 @@ export const FOOTER_LINKS = [
     icon: AiOutlineHome,
   },
   {
-    value: "products",
-    path: "/categories",
+    value: "Contact Us",
+    path: "/contact-us",
     icon: AiOutlineShoppingCart,
   },
   {
-    value: "blog",
-    path: "/blogs",
+    value: "News",
+    path: "/news",
     icon: AiOutlineAppstore,
-  },
-  {
-    value: "account",
-    path: "/account/profile",
-    icon: AiOutlineUser,
   },
 ];
 export const MOBILE_NAVBAR_LINKS = [
