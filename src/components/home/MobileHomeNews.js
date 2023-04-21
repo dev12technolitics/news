@@ -18,7 +18,7 @@ export default function NewsPage({ categoriesAllData, newsAllData }) {
                   return (
                     <div
                       key={item?._id}
-                      className="p-1 md:p-6 aspect-square w-[24vw]"
+                      className="p-1 md:p-6 aspect-square h-[107px] w-[24vw]"
                     >
                       <CategoryHomeBox item={item} />
                     </div>
