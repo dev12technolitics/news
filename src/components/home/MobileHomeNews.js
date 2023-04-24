@@ -38,7 +38,7 @@ export default function NewsPage({ newsAllData, setpageLoading, categories }) {
               >
                 <div
                   onClick={() => filterAllData()}
-                  className={`mr-1 flex justify-center items-center
+                  className={`mr-1 flex justify-center text-sm items-center
                  ${
                    openTab == "All"
                      ? "tab_button_active py-2 px-4"
@@ -52,7 +52,7 @@ export default function NewsPage({ newsAllData, setpageLoading, categories }) {
                     <div
                       key={index}
                       onClick={() => filterCardData(item?._id)}
-                      className={`mr-1 flex justify-center items-center ${
+                      className={`mr-1 flex justify-center text-sm items-center ${
                         openTab == item?._id
                           ? "tab_button_active  py-2 px-4"
                           : "tab_button py-2 px-4"
