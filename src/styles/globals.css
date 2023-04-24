@@ -330,4 +330,15 @@ article {
   }
 }
 
+.tab_button_active {
+  background-color: #0a0a0ae3;
+  color: #ffff;
+  border-radius: 50px 50px 50px 50px;
+}
+
+.tab_button {
+  background-color: transparent;
+  color: #939090;
+  border-radius: 0px 0px 0px 0px;
+}
 /* border-image-source: linear-gradient(to left, #743ad5, #d53a9d); */

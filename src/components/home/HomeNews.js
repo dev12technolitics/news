@@ -2,7 +2,7 @@ import moment from "moment";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-export default function HomeNews({ newsAllData }) {
+export default function HomeNews({ newsAllData = [] }) {
   const { push } = useRouter();
 
   const newarray = newsAllData?.slice(1, 5);
@@ -11,6 +11,7 @@ export default function HomeNews({ newsAllData }) {
     push(`/news/${id}`);
   };
 
+  console.log("newsAllData", newsAllData);
   return (
     <div className="flex justify-center w-full text-center">
       <div className="container lg:mt-20 md:mt-12">

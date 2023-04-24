@@ -1,13 +1,14 @@
 import dynamic from "next/dynamic";
+import { useEffect } from "react";
 import { useGetAllCategories } from "src/services/categoryServices";
 import { useGetAllNews } from "src/services/news";
 import { FadeIn } from "../animate";
-import { ErrorScreen, LoadingScreen } from "../basics";
+import { ErrorScreen } from "../basics";
 
 const DynamicHomeNews = dynamic(() => import("./HomeNews"));
 const DynamicMobileHomeNews = dynamic(() => import("./MobileHomeNews"));
 
-export default function HomePage() {
+export default function HomePage({ setpageLoading }) {
   const {
     data: categoriesAllData,
     isLoading: categoriesLoading,
@@ -20,7 +21,11 @@ export default function HomePage() {
     isError: newsError,
   } = useGetAllNews();
 
-  if (categoriesLoading || newsLoading) return <LoadingScreen />;
+  useEffect(() => {
+    if (!categoriesLoading && !newsLoading) {
+      setpageLoading(false);
+    }
+  }, [categoriesLoading, newsLoading]);
 
   if (categoriesError || newsError) return <ErrorScreen />;
 
@@ -34,8 +39,9 @@ export default function HomePage() {
       <div className="md:hidden">
         <FadeIn durationTime="1s">
           <DynamicMobileHomeNews
-            categoriesAllData={categoriesAllData}
+            categories={categoriesAllData}
             newsAllData={newsAllData}
+            setpageLoading={setpageLoading}
           />
         </FadeIn>
       </div>

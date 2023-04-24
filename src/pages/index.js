@@ -2,7 +2,7 @@
 import Head from "next/head";
 import { HomePage } from "src/components/home";
 
-export default function Home() {
+export default function Home({ pageLoading, setpageLoading }) {
   return (
     <section className="relative">
       <Head>
@@ -28,7 +28,7 @@ export default function Home() {
       </Head>
 
       <div className="">
-        <HomePage />
+        <HomePage setpageLoading={setpageLoading} />
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import { Box, Grid } from "@mui/material";
 import moment from "moment";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
 import { useGetAllAdvertisement } from "src/services/advertisementServices";
@@ -9,9 +10,9 @@ import { useGetAllNews } from "src/services/news";
 import PicOne from "../../assets/svg/Screenshot.png";
 import { NewsDetail } from "../../data/NewsDetail";
 import { FadeIn } from "../animate";
-import { AppCarousel, ErrorScreen, LoadingScreen } from "../basics";
+import { AppCarousel, ErrorScreen } from "../basics";
 
-const Details = ({ oneNewsData }) => {
+const Details = ({ oneNewsData = {}, setpageLoading }) => {
   const { title, descriptions, created_at, attach_file, seoTags } = oneNewsData;
 
   const {
@@ -20,7 +21,11 @@ const Details = ({ oneNewsData }) => {
     isError: newsError,
   } = useGetAllNews();
 
-  if (newsLoading) return <LoadingScreen />;
+  useEffect(() => {
+    if (!newsLoading) {
+      setpageLoading(false);
+    }
+  }, [newsLoading]);
 
   if (newsError) return <ErrorScreen />;
 
@@ -144,7 +149,11 @@ const Details = ({ oneNewsData }) => {
           </div>
 
           <div className="lg:col-span-2 md:px-0 px-4 mt-6 md:mt-0 ">
-            <OtherData newsAllData={newsAllData} seoTags={seoTags} />
+            <OtherData
+              newsAllData={newsAllData}
+              seoTags={seoTags}
+              setpageLoading={setpageLoading}
+            />
           </div>
         </div>
       </div>
@@ -153,7 +162,7 @@ const Details = ({ oneNewsData }) => {
 };
 export default Details;
 
-export const OtherData = ({ newsAllData, seoTags }) => {
+export const OtherData = ({ newsAllData, seoTags, setpageLoading }) => {
   const { push } = useRouter();
   const {
     data: advertisementAllData,
@@ -161,7 +170,11 @@ export const OtherData = ({ newsAllData, seoTags }) => {
     isError: advertisementError,
   } = useGetAllAdvertisement();
 
-  if (advertisementLoading) return <LoadingScreen />;
+  useEffect(() => {
+    if (!advertisementLoading) {
+      setpageLoading(false);
+    }
+  }, [advertisementLoading]);
 
   if (advertisementError) return <ErrorScreen />;
 

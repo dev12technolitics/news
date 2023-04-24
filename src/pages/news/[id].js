@@ -1,22 +1,27 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { FadeRight } from "src/components/animate";
-import { ErrorScreen, LoadingScreen } from "src/components/basics";
+import { ErrorScreen } from "src/components/basics";
 import { NewsDetail } from "src/components/news";
 import { useGetOneNewsById } from "src/services/news";
 
-const NewsDetailPage = () => {
+const NewsDetailPage = ({ setpageLoading }) => {
   const { query } = useRouter();
   const id = query?.id;
   const { data, isLoading, isError } = useGetOneNewsById(id);
-  if (isLoading) return <LoadingScreen />;
-  if (isError) return <ErrorScreen />;
 
-  console.log("datadata", data);
+  useEffect(() => {
+    if (!isLoading) {
+      setpageLoading(false);
+    }
+  }, [isLoading]);
+
+  if (isError) return <ErrorScreen />;
 
   return (
     <>
       <FadeRight durationTime={"1s"}>
-        <NewsDetail oneNewsData={data} />
+        <NewsDetail oneNewsData={data} setpageLoading={setpageLoading} />
       </FadeRight>
     </>
   );

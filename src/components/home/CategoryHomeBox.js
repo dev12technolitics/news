@@ -6,7 +6,7 @@ export function CategoryHomeBox({ item, redirectUrl, redirectPath }) {
 
   return (
     <>
-      <div className="relative border-2 w-20 h-20 border-red-900 rounded-full p-1  aspect-square animate-opacityAnimation ">
+      <div className="relative border-2 w-20 h-20 border-red-900 rounded-full p-1  aspect-square animate-opacityAnimation">
         <Image
           src={bgImg}
           alt={name}
