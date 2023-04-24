@@ -18,7 +18,7 @@ export default function NewsPage({ categoriesAllData, newsAllData }) {
                   return (
                     <div
                       key={item?._id}
-                      className="p-1 md:p-6 aspect-square h-[107px] w-[24vw]"
+                      className="p-1 md:p-6 aspect-square h-[88px] w-[24vw]"
                     >
                       <CategoryHomeBox item={item} />
                     </div>
@@ -32,8 +32,8 @@ export default function NewsPage({ categoriesAllData, newsAllData }) {
             {NewsDetail?.map((item, index) => {
               return (
                 <article key={index}>
-                  <Link href={redirectUrl}>
-                    <div className="mb-[40px] hoverline">
+                  <div className="mb-[40px] hoverline">
+                    <Link href={redirectUrl}>
                       <div className="relative h-full w-full overflow-hidden ">
                         <Image
                           loading="lazy"
@@ -76,49 +76,54 @@ export default function NewsPage({ categoriesAllData, newsAllData }) {
                         >
                           {item.detail}
                         </h5>
+                      </div>
+                    </Link>
 
-                        <div className="flex">
-                          <a
-                            target={"_blank"}
-                            rel="noreferrer"
-                            // href={`https://www.facebook.com/sharer.php?u=${socialSharePath}`}
-                          >
-                            <button className="cursor-poinetr mr-2 inline-flex items-center space-x-2 rounded-full bg-[#4080FF] p-3 font-semibold text-white">
-                              <FaFacebook />
-                            </button>
-                          </a>
-                          <a
-                            target={"_blank"}
-                            rel="noreferrer"
-                            // href={`https://api.whatsapp.com/send?text=${socialSharePath}`}
-                          >
-                            <button className="cursor-poinetr mr-2 inline-flex items-center space-x-2 rounded-full bg-[#4fce5d] p-3 font-semibold text-white">
-                              <BsWhatsapp />
-                            </button>
-                          </a>
-                          <a
-                            target={"_blank"}
-                            rel="noreferrer"
-                            // href={`https://twitter.com/intent/tweet?text=${socialSharePath}`}
-                          >
-                            <button className="cursor-poinetr mr-2 inline-flex items-center space-x-2 rounded-full bg-[#40BFF5] p-3 font-semibold text-white">
-                              <BsTwitter />
-                            </button>
-                          </a>
-                          <a
-                            target={"_blank"}
-                            className="cursor-poinetr"
-                            rel="noreferrer"
-                            // href={`https://www.instagram.com/?url=${socialSharePath}`}
-                          >
-                            <button className="cursor-poinetr inline-flex items-center space-x-2 rounded-full bg-[#FF9C31] p-3 font-semibold text-white">
-                              <BsInstagram />
-                            </button>
-                          </a>
-                        </div>
+                    <div className="flex justify-between items-center px-4">
+                      <div>
+                        <a
+                          target={"_blank"}
+                          rel="noreferrer"
+                          // href={`https://www.facebook.com/sharer.php?u=${socialSharePath}`}
+                        >
+                          <button className="cursor-poinetr mr-2 inline-flex items-center space-x-2 rounded-full bg-[#4080FF] p-3 font-semibold text-white">
+                            <FaFacebook />
+                          </button>
+                        </a>
+                        <a
+                          target={"_blank"}
+                          rel="noreferrer"
+                          // href={`https://api.whatsapp.com/send?text=${socialSharePath}`}
+                        >
+                          <button className="cursor-poinetr mr-2 inline-flex items-center space-x-2 rounded-full bg-[#4fce5d] p-3 font-semibold text-white">
+                            <BsWhatsapp />
+                          </button>
+                        </a>
+                        <a
+                          target={"_blank"}
+                          rel="noreferrer"
+                          // href={`https://twitter.com/intent/tweet?text=${socialSharePath}`}
+                        >
+                          <button className="cursor-poinetr mr-2 inline-flex items-center space-x-2 rounded-full bg-[#40BFF5] p-3 font-semibold text-white">
+                            <BsTwitter />
+                          </button>
+                        </a>
+                        <a
+                          target={"_blank"}
+                          className="cursor-poinetr"
+                          rel="noreferrer"
+                          // href={`https://www.instagram.com/?url=${socialSharePath}`}
+                        >
+                          <button className="cursor-poinetr inline-flex items-center space-x-2 rounded-full bg-[#FF9C31] p-3 font-semibold text-white">
+                            <BsInstagram />
+                          </button>
+                        </a>
+                      </div>
+                      <div>
+                        <h3 className="my-0">Join Group</h3>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 </article>
               );
             })}
