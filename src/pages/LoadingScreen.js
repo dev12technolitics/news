@@ -1,0 +1,21 @@
+import Image from "next/image";
+import Logo from "src/assets/svg/Screenshotlogo.png";
+
+const LoadingScreen = () => {
+  return (
+    <section className="w-full h-full">
+      <div className="flex h-screen w-full items-center justify-center">
+        <div className="relative flex h-[130px] w-[260px] items-center justify-center sm:h-[140px] sm:w-[150px]">
+          <Image
+            fill
+            src={Logo}
+            alt="Picture of the author"
+            className="object-contain"
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default LoadingScreen;
