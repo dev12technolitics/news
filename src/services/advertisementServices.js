@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import api from "./api";
 
-export const useGetAllNews = () => {
+export const useGetAllAdvertisement = () => {
   const { data, isError, isLoading } = useQuery(
-    ["_getAllNews"],
-    () => api.get("/newsmanagement/all"),
-    { enabled: true }
+    ["_getAllAdvertisement"],
+    () => api.get("/advertisement/all"),
+    {
+      enabled: true,
+    }
   );
   return {
     data: data?.data?.data,
@@ -14,11 +16,10 @@ export const useGetAllNews = () => {
   };
 };
 
-export const useGetOneNewsById = (id) => {
+export const useGetOneAdvertisementById = (id) => {
   const { data, isError, isLoading } = useQuery(
-    ["_getOneNewsById", id],
-    () => api.get(`/newsmanagement/one/${id}`),
-    { enabled: id ? true : false }
+    ["_getOneAdvertisementById"],
+    () => api.get(`/advertisement/one/${id}`)
   );
   return {
     data: data?.data?.data,

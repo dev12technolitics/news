@@ -2,16 +2,18 @@ import { Divider } from "@mui/material";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import { Stack } from "@mui/system";
+import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 import { AiFillPhone } from "react-icons/ai";
 import { BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { FaBlenderPhone, FaFacebook } from "react-icons/fa";
 import { MdClose, MdEmail } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
-
+import { AppButton } from "../basics";
 import AppIconButton from "../basics/AppIconButton";
 
 export default function SideMenuBar() {
+  const { push } = useRouter();
   const [search, setSearch] = useState("");
   const [state, setState] = useState({
     left: false,
@@ -58,7 +60,7 @@ export default function SideMenuBar() {
         </span>
       </div>
 
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-6">
         <div className="w-10/12 h-fit mx-auto flex justify-center">
           <div
             className="relative border-dark-grey border-b-3 flex items-center 
@@ -95,7 +97,7 @@ export default function SideMenuBar() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-14">
+      <div className="flex justify-center mt-8">
         <Stack className="bg-[#fff] w-10/12 h-fit flex justify-end">
           <div className="capitalize w-full">
             <h1 className="font-bold text-lg md:text-2xl capitalize mt-0">
@@ -180,6 +182,20 @@ export default function SideMenuBar() {
                 </button>
               </a>
             </div>
+            <Stack spacing={3} className="flex mt-8">
+              <AppButton
+                size="large"
+                variant="contained"
+                title="Contact Us"
+                onClick={() => push("/contact-us")}
+              />
+              <AppButton
+                size="large"
+                variant="contained"
+                title="Become A Reporter"
+                onClick={() => push("/news")}
+              />
+            </Stack>
           </div>
         </Stack>
       </div>

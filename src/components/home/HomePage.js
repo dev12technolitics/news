@@ -13,6 +13,7 @@ export default function HomePage() {
     isLoading: categoriesLoading,
     isError: categoriesError,
   } = useGetAllCategories();
+
   const {
     data: newsAllData,
     isLoading: newsLoading,

@@ -1,26 +1,40 @@
 import { Box, Grid } from "@mui/material";
+import moment from "moment";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
-// import moment from "moment";
-import Pic from "../../assets/svg/business.jpg";
+import { useGetAllAdvertisement } from "src/services/advertisementServices";
+import { useGetAllNews } from "src/services/news";
 import PicOne from "../../assets/svg/Screenshot.png";
 import { NewsDetail } from "../../data/NewsDetail";
 import { FadeIn } from "../animate";
-import { AppCarousel } from "../basics";
+import { AppCarousel, ErrorScreen, LoadingScreen } from "../basics";
 
-function Detail() {
+const Details = ({ oneNewsData }) => {
+  const { title, descriptions, created_at, attach_file, seoTags } = oneNewsData;
+
+  const {
+    data: newsAllData,
+    isLoading: newsLoading,
+    isError: newsError,
+  } = useGetAllNews();
+
+  if (newsLoading) return <LoadingScreen />;
+
+  if (newsError) return <ErrorScreen />;
+
   return (
     <>
       <Grid container>
         <Grid item lg={12} sm={12}>
-          <div className="bg-[#F9F9F9] flex justify-center pt-24 md:pt-16 pb-12 items-center text-start w-full">
-            <div className="container">
+          <div className="bg-[#F9F9F9] flex justify-center pt-24 md:pt-16 pb-16 items-center text-start w-full">
+            <div className="container h-[42px] overflow-hidden">
               <h1
                 className="text-3xl md:text-4xl mt-0 mb-0
               px-4 md:px-0 leading-6 tracking-normal text-slate-700 leading-[2.3rem] md:leading-10"
               >
-                Why Some People Almost Always Make/Save Money With World
+                {title}
               </h1>
             </div>
           </div>
@@ -39,12 +53,11 @@ function Detail() {
             <div className="absolute z-10 mt-5 flex flex-col items-center bg-gray-200 px-4 py-2">
               <div className="">
                 <span className="text-lg font-semibold text-theme-primary-main">
-                  Oct
+                  {moment(created_at).format("MMM")}
                 </span>
                 <br />
                 <span className="text-base font-medium text-slate-800">
-                  {" "}
-                  14
+                  {moment(created_at).format("DD")}
                 </span>
               </div>
             </div>
@@ -54,32 +67,26 @@ function Detail() {
                 height={1000}
                 width={1000}
                 alt="alt"
-                src={Pic}
+                src={attach_file}
                 loading="lazy"
                 className="w-full h-auto object-covor"
               />
             </div>
 
-            <div className="text-lg md:text-xl  font-medium text-[#494e51]">
-              <p className="mb-0 text-left md:text-justify">
-                Moms are the ones who bandage our boo-boos when we’re little and
-                continue to take care of us as we get older—often sacrificing
-                their own needs so they can help with ours. Cruising on a bike
-                to help heal our injuries is the most mom thing one can do.
-                These eight shots crystallize the hard work moms put into
-                keeping their kids alive, happy, and healthy. They might give
-                you the inspiration you need for filling out that card—or stand
-                alone for your mom’s interpretation.
-              </p>
-            </div>
+            {descriptions?.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className="text-lg md:text-xl  font-medium text-[#494e51]"
+                >
+                  <p className="mb-0 text-left md:text-justify">
+                    {item?.news_descriptions}
+                  </p>
+                </div>
+              );
+            })}
 
             <Box className="flex items-center py-4">
-              {/* <div
-                className="text-2xl font-normal
-                    leading-6 tracking-normal font-semibold opacity-70 "
-              >
-                Share :
-              </div> */}
               <div className="">
                 <a
                   target={"_blank"}
@@ -137,17 +144,30 @@ function Detail() {
           </div>
 
           <div className="lg:col-span-2 md:px-0 px-4 mt-6 md:mt-0 ">
-            <OtherData />
+            <OtherData newsAllData={newsAllData} seoTags={seoTags} />
           </div>
         </div>
       </div>
     </>
   );
-}
+};
+export default Details;
 
-export default Detail;
+export const OtherData = ({ newsAllData, seoTags }) => {
+  const { push } = useRouter();
+  const {
+    data: advertisementAllData,
+    isLoading: advertisementLoading,
+    isError: advertisementError,
+  } = useGetAllAdvertisement();
 
-export const OtherData = () => {
+  if (advertisementLoading) return <LoadingScreen />;
+
+  if (advertisementError) return <ErrorScreen />;
+
+  const handlepush = (id) => {
+    push(`/news/${id}`);
+  };
   return (
     <Box
       sx={{
@@ -171,14 +191,14 @@ export const OtherData = () => {
               autoplaySpeed: 2000,
             }}
           >
-            {NewsDetail?.map((item, index) => {
+            {advertisementAllData?.map((item, index) => {
               return (
                 <div key={index} className="max-h-fit">
                   <FadeIn durationTime="1s">
                     <div className="relative aspect-square w-full">
                       <Image
                         fill
-                        src={item?.image}
+                        src={item?.attach_banner}
                         className="w-full animate-opacityAnimation object-cover"
                         alt={item?.title}
                       />
@@ -197,33 +217,41 @@ export const OtherData = () => {
         >
           other post
         </div>
+
         <div className="relative mt-4 ">
-          <div className="relative flex  hover:cursor-pointer hoverline">
-            <div className="relative mr-2.5 md:h-28 md:w-28 h-20 w-20 shrink-0 animate-opacityAnimation overflow-hidden">
-              <Image
-                fill
-                src={Pic}
-                alt="logo"
-                className="h-full w-full object-cover"
-              />
-            </div>
+          {newsAllData?.map((item, index) => {
+            return (
+              <div key={index} onClick={() => handlepush(item?._id)}>
+                <div className="relative flex  hover:cursor-pointer hoverline md:mb-8 mb-4">
+                  <div className="relative mr-2.5 md:h-28 md:w-28 h-20 w-20 shrink-0 animate-opacityAnimation overflow-hidden">
+                    <Image
+                      fill
+                      src={item?.attach_file}
+                      alt="logo"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
 
-            <div className="w-full">
-              <div className="flex md:text-justify w-full text-left">
-                <a className="text-lg capitalize">
-                  <span className="underlinehead font-bold">
-                    {" "}
-                    Global research and innovation forum: towards a research
-                    roadmap
-                  </span>
-                </a>
-              </div>
+                  <div className="w-full">
+                    <div className="flex md:text-justify w-full text-left">
+                      <a className="text-lg capitalize h-[88px] overflow-hidden">
+                        <span className="underlinehead font-bold">
+                          {item?.title}
+                        </span>
+                      </a>
+                    </div>
 
-              <div className="text-slate-500 mt-4">
-                <h6 className="text-sm m-0 font-thin">By &nbsp; axilthemes</h6>
+                    <div className="text-slate-500 md:mt-4 mt-2">
+                      <h6 className="text-sm m-0  font-thin">
+                        By &nbsp; axilthemes
+                      </h6>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
+
           <div
             className="text-lg font-semibold
                     leading-6 tracking-normal
@@ -231,12 +259,18 @@ export const OtherData = () => {
           >
             Tags
           </div>
-          <div
-            className="relative mr-2 mb-2 inline-block bg-slate-200 mt-[10px]
+
+          {seoTags?.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className="relative mr-2 mb-2 inline-block bg-slate-200 mt-[10px]
                          px-3 py-2 align-top text-sm capitalize text-gray opacity-60 border border-slate-400"
-          >
-            TAGS
-          </div>
+              >
+                {item}
+              </div>
+            );
+          })}
         </div>
       </Box>
     </Box>

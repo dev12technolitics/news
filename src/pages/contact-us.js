@@ -31,23 +31,21 @@ export default function ContactUs() {
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const ContactUsSchema = Yup.object().shape({
-    your_name: Yup.string().required("Name is required"),
-    email_id: Yup.string()
+    name: Yup.string().required("Name is required"),
+    emailId: Yup.string()
       .email("Email must be a valid email address")
       .notRequired(),
-    contect_no: Yup.string()
+    contactNo: Yup.string()
       .min(10, "Contact number must be atleast 10 digits")
       .max(10, "Contact number must be only 10 digits")
       .matches(phoneRegExp, "Contact number is not valid"),
-    city: Yup.string().required("City is required"),
   });
 
   const defaultValues = useMemo(
     () => ({
-      your_name: "",
-      contect_no: "",
-      city: "",
-      email_id: "",
+      name: "",
+      contactNo: "",
+      emailId: "",
       remarks: "",
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -69,11 +67,11 @@ export default function ContactUs() {
   // const values = watch()
 
   const onSubmit = async (data) => {
+    console.log("data", data);
     const payload = {
-      your_name: data?.your_name,
-      contect_no: data?.contect_no,
-      city: data?.city,
-      email_id: data?.email_id,
+      name: data?.name,
+      contactNo: data?.contactNo,
+      emailId: data?.emailId,
       remarks: data?.remarks,
     };
     mutate(payload, {
@@ -118,21 +116,21 @@ export default function ContactUs() {
                         >
                           <RHFTextField
                             sx={{ background: "white" }}
-                            name="your_name"
+                            name="name"
                             label="Name"
                           />
 
                           <RHFTextField
                             sx={{ background: "white" }}
-                            name="contect_no"
+                            name="contactNo"
                             label="Contact No."
                             onChange={(e) => {
-                              setValue("contect_no", allowOnlyNumbers(e));
+                              setValue("contactNo", allowOnlyNumbers(e));
                             }}
                           />
                           <RHFTextField
                             sx={{ background: "white" }}
-                            name="email_id"
+                            name="emailId"
                             label="Email Id"
                           />
 
@@ -160,6 +158,7 @@ export default function ContactUs() {
                 </Stack>
               </div>
             </div>
+
             <div className="sm:col-span-6 col-span-6 md:col-span-6 lg:col-span-2">
               <div
                 className="pt-0 sm:pt-10 lg:pr-24 md:pr-24 md:pl-24 lg:pl-0 
