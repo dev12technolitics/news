@@ -97,7 +97,7 @@ export default function CategoriesBaseCard({ cardData = [], setpageLoading }) {
                       <div>
                         <Button
                           className="my-0 flex text-lg items-center text-[#212b36d1]"
-                          onclick={() => handleOnClick()}
+                          onClick={() => handleOnClick()}
                         >
                           Share
                           <RiShareForward2Fill
