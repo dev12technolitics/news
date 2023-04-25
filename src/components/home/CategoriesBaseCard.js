@@ -7,21 +7,25 @@ export default function CategoriesBaseCard({ cardData = [], setpageLoading }) {
   const { push } = useRouter();
 
   const handleOnClick = () => {
-    if (navigator.share) {
-      navigator
-        .share({
-          // title: "`${postTitle} | ${siteTitle}`,",
-          // text: `Check out ${postTitle} on ${siteTitle}`,
-          title: "Share via",
-          text: `Nearby Share`,
-          url: document.location.href,
-        })
-        .then(() => {
-          console.log("Successfully shared");
-        })
-        .catch((error) => {
-          console.error("Something went wrong sharing the blog", error);
-        });
+    try {
+      if (navigator.share) {
+        navigator
+          .share({
+            // title: "`${postTitle} | ${siteTitle}`,",
+            // text: `Check out ${postTitle} on ${siteTitle}`,
+            title: "Share via",
+            text: `Nearby Share`,
+            url: document.location.href,
+          })
+          .then(() => {
+            alert("Successfully shared");
+          })
+          .catch((error) => {
+            alert("Something went wrong sharing the blog", error);
+          });
+      }
+    } catch (err) {
+      alert("catch error", err);
     }
   };
 

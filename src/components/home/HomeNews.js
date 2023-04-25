@@ -16,7 +16,7 @@ export default function HomeNews({ newsAllData = [] }) {
       <div className="container lg:mt-20 md:mt-12">
         <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
           <div
-            className="p-4 hoverline mb-16 "
+            className="p-4 hoverline mb-16 cursor-pointer"
             onClick={() => handlepush(newsAllData[0]?._id)}
           >
             <div className="relative aspect-square w-full p-4 overflow-hidden">
@@ -61,13 +61,12 @@ export default function HomeNews({ newsAllData = [] }) {
 
             {newarray?.map((item, index) => {
               return (
-                <div
-                  className="flex mb-4 w-full hoverline"
-                  key={index}
-                  onClick={() => handlepush(item?._id)}
-                >
-                  <div className="w-1/4">
-                    <div className="relative aspect-square w-full p-4 overflow-hidden">
+                <div className="flex mb-4 w-full hoverline" key={index}>
+                  <div
+                    className="w-1/4 cursor-pointer"
+                    onClick={() => handlepush(item?._id)}
+                  >
+                    <div className="relative aspect-square w-full p-4 overflow-hidden ">
                       <Image
                         fill
                         loading="lazy"
@@ -77,11 +76,12 @@ export default function HomeNews({ newsAllData = [] }) {
                       />
                     </div>
                   </div>
+
                   <div className="relative ml-8 w-3/4">
-                    <div className="w-[100px]">
+                    <div className="w-[200px] mt-2.5">
                       <div
-                        className="px-4 py-1 font-sm text-[#fff]
-                  font-semibold mb-4"
+                        className="px-4 py-1 font-sm w-fit
+                                font-semibold text-md text-white flex text-center justify-center cursor-pointer"
                         style={{
                           backgroundColor:
                             index % 2 == 0
@@ -92,12 +92,16 @@ export default function HomeNews({ newsAllData = [] }) {
                                 : "#4cd965"
                               : "#ff4f00",
                         }}
+                        onClick={() => push(`/news/${item?.categorySlug}`)}
                       >
-                        lifeStyle
+                        {item.categoryName}
                       </div>
                     </div>
 
-                    <div className="flex text-justify w-full text-center">
+                    <div
+                      className="flex text-justify w-full text-center cursor-pointer"
+                      onClick={() => handlepush(item?._id)}
+                    >
                       <a className="link text-2xl font-bold h-[66px] overflow-hidden">
                         <span className="underlinehead">{item.title}</span>
                       </a>
