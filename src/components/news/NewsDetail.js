@@ -33,7 +33,10 @@ const Details = ({ oneNewsData = {}, setpageLoading }) => {
     <>
       <Grid container>
         <Grid item lg={12} sm={12}>
-          <div className="bg-[#F9F9F9] flex justify-center pt-24 md:pt-16 pb-16 items-center text-start w-full">
+          <div
+            className="bg-[#F9F9F9] flex justify-center pt-8 pb-8
+          md:mt-0 mt-[-2px] md:pt-16 md:pb-16 items-center text-start w-full"
+          >
             <div className="container h-[42px] overflow-hidden">
               <h1
                 className="text-3xl md:text-4xl mt-0 mb-0
@@ -179,7 +182,7 @@ export const OtherData = ({ newsAllData, seoTags, setpageLoading }) => {
   if (advertisementError) return <ErrorScreen />;
 
   const handlepush = (id) => {
-    push(`/news/${id}`);
+    push(`/news/detail/${id}`);
   };
   return (
     <Box

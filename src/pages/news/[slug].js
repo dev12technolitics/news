@@ -1,12 +1,30 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import CategoriesBaseCard from "./CategoriesBaseCard";
+import { ErrorScreen } from "src/components/basics";
+import CategoriesBaseCard from "src/components/home/CategoriesBaseCard";
+import {
+  useGetAllCategories,
+  useGetOneNewsById,
+} from "src/services/categoryServices";
 
-export default function NewsPage({ newsAllData, setpageLoading, categories }) {
-  const { push } = useRouter();
-  const [openTab, setOpenTab] = useState("All");
+export default function NewsPage({ setpageLoading }) {
+  const { query, push } = useRouter();
+  const slug = query?.slug;
+  const { data, isLoading, isError } = useGetOneNewsById(slug);
+
   const [scrolled, setScrolled] = useState(false);
-  const [cardData, setCardData] = useState([]);
+
+  const {
+    data: categoriesAllData,
+    isLoading: categoriesLoading,
+    isError: categoriesError,
+  } = useGetAllCategories();
+
+  useEffect(() => {
+    if (!categoriesLoading) {
+      setpageLoading(false);
+    }
+  }, [categoriesLoading]);
 
   const changeNavbarShadow = () => {
     if (window.scrollY >= 63) {
@@ -19,13 +37,15 @@ export default function NewsPage({ newsAllData, setpageLoading, categories }) {
     window.addEventListener("scroll", changeNavbarShadow);
   }, [scrolled]);
 
-  useEffect(() => {
-    setCardData(newsAllData);
-  }, [newsAllData]);
-
   const filterCardData = (slug) => {
     push(`/news/${slug}`);
   };
+
+  const filterAllData = () => {
+    push(`/`);
+  };
+
+  if (categoriesError) return <ErrorScreen />;
 
   return (
     <>
@@ -39,7 +59,7 @@ export default function NewsPage({ newsAllData, setpageLoading, categories }) {
                  ? `top-0 sticky shadow-shadow-primary scroll-smooth`
                  : `top-40`
              }
-              bg-white py-2 
+              bg-white py-2
               z-20`}
             >
               <div className="mx-4">
@@ -48,22 +68,18 @@ export default function NewsPage({ newsAllData, setpageLoading, categories }) {
              gap-y-2 overflow-scroll"
                 >
                   <div
-                    className={`flex justify-center text-sm items-center font-medium
-                 ${
-                   openTab == "All"
-                     ? "tab_button_active py-2 px-4"
-                     : "tab_button py-2 px-4"
-                 }`}
+                    onClick={() => filterAllData()}
+                    className="flex justify-center text-sm items-center tab_button py-2 px-4"
                   >
                     All
                   </div>
-                  {categories?.map((item, index) => {
+                  {categoriesAllData?.map((item, index) => {
                     return (
                       <div
                         key={index}
                         onClick={() => filterCardData(item?.slug)}
-                        className={`flex justify-center text-sm items-center font-medium ${
-                          openTab == item?.slug
+                        className={`flex justify-center text-sm items-center ${
+                          slug == item?.slug
                             ? "tab_button_active  py-2 px-4"
                             : "tab_button py-2 px-4"
                         }`}
@@ -81,7 +97,7 @@ export default function NewsPage({ newsAllData, setpageLoading, categories }) {
                 <div className="justify-center">
                   <div className="flex flex-col justify-center w-full">
                     <CategoriesBaseCard
-                      cardData={cardData}
+                      cardData={data}
                       setpageLoading={setpageLoading}
                     />
                   </div>

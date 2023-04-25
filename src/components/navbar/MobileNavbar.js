@@ -15,9 +15,15 @@ export default function MobileNavbar({ userData, userType }) {
       Router.replace("/");
     }
   };
+  //
   return (
     <>
-      <div className="w-screen z-50 py-1 bg-white fixed shadow-shadow-primary transition-all duration-300">
+      <div
+        className="w-screen py-1 mb-[0.4rem] bg-white shadow-shadow-primary scroll-smooth"
+        // className={`
+        //      ${pathname !== "/" && `z-50 fixed transition-all duration-300`}
+        //      w-screen py-1 mb-2 bg-white shadow-shadow-primary scroll-smooth`}
+      >
         <div className=" relative mx-auto flex w-full items-center justify-between ">
           <div className="flex px-2">
             {pathname !== "/" && (

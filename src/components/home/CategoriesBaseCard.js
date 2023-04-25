@@ -1,34 +1,58 @@
 import Image from "next/image";
-import { BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
-import { FaFacebook } from "react-icons/fa";
-import { NewsDetail } from "../../data/NewsDetail";
+import { useRouter } from "next/router";
+import { RiShareForward2Fill } from "react-icons/ri";
+import { TbBrandWhatsapp } from "react-icons/tb";
 
-export default function CategoriesBaseCard({ cardData, setpageLoading }) {
+export default function CategoriesBaseCard({ cardData = [], setpageLoading }) {
+  const { push } = useRouter();
+
+  const handleOnClick = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          // title: "`${postTitle} | ${siteTitle}`,",
+          // text: `Check out ${postTitle} on ${siteTitle}`,
+          title: "Share via",
+          text: `Nearby Share`,
+          url: document.location.href,
+        })
+        .then(() => {
+          console.log("Successfully shared");
+        })
+        .catch((error) => {
+          console.error("Something went wrong sharing the blog", error);
+        });
+    }
+  };
+
   return (
     <>
       <div className="flex justify-center w-full text-center">
         <div className="container">
           <main>
-            {NewsDetail?.map((item, index) => {
+            {cardData?.map((item, index) => {
               return (
                 <article key={index}>
                   <div className="mb-[40px] hoverline">
-                    {/* <Link href={redirectUrl}> */}
-                    <div className="relative h-full w-full overflow-hidden">
+                    <div
+                      className="relative h-full w-full cursor-pointer"
+                      onClick={() => push(`/news/detail/${item?._id}`)}
+                    >
                       <Image
                         loading="lazy"
-                        src={item.image}
+                        src={item.attach_file}
                         height={1000}
                         width={1000}
-                        className="w-full h-full overflow-hidden object-contain"
+                        className="w-full h-full object-contain"
                         alt="Sample image"
                       />
                     </div>
+
                     <div className="px-4">
                       <div className="w-[200px] mt-2.5">
                         <div
                           className="px-4 py-1 font-sm w-fit
-                                font-semibold text-white flex text-center justify-center"
+                                font-semibold text-md text-white flex text-center justify-center cursor-pointer"
                           style={{
                             backgroundColor:
                               index % 2 == 0
@@ -39,68 +63,48 @@ export default function CategoriesBaseCard({ cardData, setpageLoading }) {
                                   : "#4cd965"
                                 : "#ff4f00",
                           }}
+                          onClick={() => push(`/news/${item?.categorySlug}`)}
                         >
-                          {item.button}
+                          {item.categoryName}
                         </div>
                       </div>
 
-                      <div className="flex text-left w-full">
-                        <a className="link text-2xl font-bold mt-3.5">
+                      <div
+                        className="flex text-left w-full"
+                        onClick={() => push(`/news/detail/${item?._id}`)}
+                      >
+                        <a className="link text-xl font-bold mt-3.5 h-[62px] overflow-hidden cursor-pointer">
                           <span className="underlinehead">{item.title}</span>
                         </a>
                       </div>
 
                       <h5
-                        className="text-lg font-normal 
-                    flex text-left my-3.5 leading-[1.50rem]"
+                        className="text-[1.05rem] font-normal cursor-pointer
+                    flex text-left mb-3.5 mt-0  leading-[1.50rem]"
+                        onClick={() => push(`/news/detail/${item?._id}`)}
                       >
-                        {item.detail}
+                        {item.short_description}
                       </h5>
                     </div>
-                    {/* </Link> */}
 
                     <div className="flex justify-between items-center px-4">
                       <div>
-                        <a
-                          target={"_blank"}
-                          rel="noreferrer"
-                          // href={`https://www.facebook.com/sharer.php?u=${socialSharePath}`}
+                        <h5
+                          className="my-0 flex text-lg items-center text-[#212b36d1]"
+                          onclick={() => handleOnClick()}
                         >
-                          <button className="cursor-poinetr mr-2 inline-flex items-center space-x-2 rounded-full bg-[#4080FF] p-3 font-semibold text-white">
-                            <FaFacebook />
-                          </button>
-                        </a>
-                        <a
-                          target={"_blank"}
-                          rel="noreferrer"
-                          // href={`https://api.whatsapp.com/send?text=${socialSharePath}`}
-                        >
-                          <button className="cursor-poinetr mr-2 inline-flex items-center space-x-2 rounded-full bg-[#4fce5d] p-3 font-semibold text-white">
-                            <BsWhatsapp />
-                          </button>
-                        </a>
-                        <a
-                          target={"_blank"}
-                          rel="noreferrer"
-                          // href={`https://twitter.com/intent/tweet?text=${socialSharePath}`}
-                        >
-                          <button className="cursor-poinetr mr-2 inline-flex items-center space-x-2 rounded-full bg-[#40BFF5] p-3 font-semibold text-white">
-                            <BsTwitter />
-                          </button>
-                        </a>
-                        <a
-                          target={"_blank"}
-                          className="cursor-poinetr"
-                          rel="noreferrer"
-                          // href={`https://www.instagram.com/?url=${socialSharePath}`}
-                        >
-                          <button className="cursor-poinetr inline-flex items-center space-x-2 rounded-full bg-[#FF9C31] p-3 font-semibold text-white">
-                            <BsInstagram />
-                          </button>
-                        </a>
+                          Share
+                          <RiShareForward2Fill
+                            className="ml-1"
+                            color="#212b36d1"
+                          />
+                        </h5>
                       </div>
                       <div>
-                        <h3 className="my-0">Join Group</h3>
+                        <h3 className="my-0 flex text-lg items-center text-[#212b36d1]">
+                          Join Group
+                          <TbBrandWhatsapp className="ml-1" color="#212b36d1" />
+                        </h3>
                       </div>
                     </div>
                   </div>

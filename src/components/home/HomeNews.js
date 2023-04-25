@@ -8,10 +8,9 @@ export default function HomeNews({ newsAllData = [] }) {
   const newarray = newsAllData?.slice(1, 5);
 
   const handlepush = (id) => {
-    push(`/news/${id}`);
+    push(`/news/detail/${id}`);
   };
 
-  console.log("newsAllData", newsAllData);
   return (
     <div className="flex justify-center w-full text-center">
       <div className="container lg:mt-20 md:mt-12">

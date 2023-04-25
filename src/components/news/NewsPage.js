@@ -2,7 +2,6 @@ import Image from "next/image";
 import { NewsDetail } from "../../data/NewsDetail";
 
 export default function NewsPage() {
-  // const redirectUrl = `/news/1`;
   return (
     <>
       <div className="flex justify-center w-full text-center">
@@ -11,7 +10,6 @@ export default function NewsPage() {
             {NewsDetail?.map((item, index) => {
               return (
                 <article key={index}>
-                  {/* <Link href={redirectUrl}> */}
                   <div className="mb-[40px] hoverline">
                     <div className="relative h-full w-full overflow-hidden ">
                       <Image
@@ -55,7 +53,6 @@ export default function NewsPage() {
                       {item.detail}
                     </h5>
                   </div>
-                  {/* </Link> */}
                 </article>
               );
             })}
