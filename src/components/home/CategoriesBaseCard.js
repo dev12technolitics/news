@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { RiShareForward2Fill } from "react-icons/ri";
@@ -8,7 +7,6 @@ export default function CategoriesBaseCard({ cardData = [], setpageLoading }) {
   const { push } = useRouter();
 
   const handleOnClick = () => {
-    alert("onclicick");
     try {
       if (navigator.share) {
         navigator
@@ -95,7 +93,7 @@ export default function CategoriesBaseCard({ cardData = [], setpageLoading }) {
 
                     <div className="flex justify-between items-center px-4">
                       <div>
-                        <Button
+                        <h3
                           className="my-0 flex text-lg items-center text-[#212b36d1]"
                           onClick={() => handleOnClick()}
                         >
@@ -104,7 +102,7 @@ export default function CategoriesBaseCard({ cardData = [], setpageLoading }) {
                             className="ml-1"
                             color="#212b36d1"
                           />
-                        </Button>
+                        </h3>
                       </div>
                       <div>
                         <h3 className="my-0 flex text-lg items-center text-[#212b36d1]">
