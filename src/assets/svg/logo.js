@@ -3,8 +3,8 @@ const Logo = ({ heightSvg, widthSvg }) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="350"
-      height="100"
-      viewBox="140 15 280 214"
+      height="250"
+      viewBox="0 15 280 214"
       version="1.1"
     >
       <image
