@@ -6,7 +6,7 @@ export default function Home({ pageLoading, setpageLoading }) {
   return (
     <section className="relative">
       <Head>
-        <link rel="icon" href="/robo_fav.png" />
+        {/* <link rel="icon" href="/robo_fav.png" /> */}
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
           rel="stylesheet"

@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/robo_fav.png" />
+        {/* <link rel="icon" href="/robo_fav.png" /> */}
         <meta name="theme-color" content="#c5ebff" />
         <meta name="msapplication-navbutton-color" content="#c5ebff" />
         <meta name="apple-mobile-web-app-status-bar-style" content="#c5ebff" />
