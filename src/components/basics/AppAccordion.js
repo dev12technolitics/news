@@ -1,8 +1,6 @@
-import { useState } from 'react'
-import Accordion from '@mui/material/Accordion'
-import AccordionDetails from '@mui/material/AccordionDetails'
-import AccordionSummary from '@mui/material/AccordionSummary'
-import { IoIosArrowDown } from 'react-icons/io'
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import { useState } from "react";
 
 export default function AppAccordion({
   title,
@@ -10,11 +8,11 @@ export default function AppAccordion({
   panelName,
   ...otherProps
 }) {
-  const [expanded, setExpanded] = useState(false)
+  const [expanded, setExpanded] = useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false)
-  }
+    setExpanded(isExpanded ? panel : false);
+  };
 
   return (
     <div>
@@ -24,14 +22,13 @@ export default function AppAccordion({
         {...otherProps}
       >
         <AccordionSummary
-          expandIcon={<IoIosArrowDown />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
+        // expandIcon={<IoIosArrowDown />}
+        // aria-controls="panel1bh-content"
+        // id="panel1bh-header"
         >
           {title}
         </AccordionSummary>
-        <AccordionDetails>{description}</AccordionDetails>
       </Accordion>
     </div>
-  )
+  );
 }

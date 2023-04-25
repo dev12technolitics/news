@@ -85,7 +85,7 @@ export default function ContactUs() {
       <DefaultSeo {...GlobalSEO.global} {...GlobalSEO["/contact-us"]} />
       <LogoJsonLd logo={SITE_LOGO} url={SITE_URL} />
       <FadeRight durationTime={"1s"}>
-        <div className="bg-[#F9F9F9]">
+        <div className="bg-[#F9F9F9] mt-[-3px] md:mt-0">
           <div className="grid grid-cols-6">
             <div className=" md:col-span-6 lg:col-span-4 sm:col-span-6 col-span-6">
               <div className="pt-0 sm:pt-10">
