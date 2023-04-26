@@ -46,10 +46,6 @@ export const MOBILE_NAVBAR_LINKS = [
     name: "home",
   },
   {
-    link: "/news",
-    name: "News",
-  },
-  {
     link: "/contact-us",
     name: "contact",
   },
