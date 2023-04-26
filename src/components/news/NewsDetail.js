@@ -13,7 +13,14 @@ import { FadeIn } from "../animate";
 import { AppCarousel, ErrorScreen } from "../basics";
 
 const Details = ({ oneNewsData = {}, OneNewsIsLoading, setpageLoading }) => {
-  const { title, descriptions, created_at, attach_file, seoTags } = oneNewsData;
+  const {
+    title,
+    descriptions,
+    created_at,
+    attach_file,
+    seoTags,
+    categorySlug,
+  } = oneNewsData;
 
   const {
     data: newsAllData,
@@ -26,6 +33,12 @@ const Details = ({ oneNewsData = {}, OneNewsIsLoading, setpageLoading }) => {
       setpageLoading(false);
     }
   }, [newsAllLoading]);
+
+  let relatedNews = newsAllData?.filter(
+    (item) => item?.categorySlug == categorySlug
+  );
+
+  const sliceRelatedNews = relatedNews?.slice(0, 5);
 
   if (newsError) return <ErrorScreen />;
 
@@ -195,7 +208,7 @@ const Details = ({ oneNewsData = {}, OneNewsIsLoading, setpageLoading }) => {
 
           <div className="lg:col-span-2 md:px-0 px-4 mt-6 md:mt-0 ">
             <OtherData
-              newsAllData={newsAllData}
+              newsAllData={sliceRelatedNews}
               seoTags={seoTags}
               setpageLoading={setpageLoading}
               newsAllLoading={newsAllLoading}
