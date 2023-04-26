@@ -39,7 +39,7 @@ export default function DesktopNavbar({ setpageLoading }) {
 
   return (
     <>
-      <DesktopTopNavbar />
+      <DesktopTopNavbar setpageLoading={setpageLoading} />
       <div
         className={`  
           ${scrolled === true ? `top-0 fixed` : `top-40`}
@@ -52,7 +52,7 @@ export default function DesktopNavbar({ setpageLoading }) {
           <nav className="container mx-auto">
             <div className="flex items-center h-16 justify-center space-x-2">
               <div className="w-full">
-                <div className="relative  flex w-full">
+                <div className="relative m-0 flex w-full">
                   <div
                     className="flex 
                       gap-y-2 overflow-scroll"

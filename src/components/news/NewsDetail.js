@@ -236,6 +236,12 @@ export const OtherData = ({
     isError: advertisementError,
   } = useGetAllAdvertisement();
 
+  let newArray = advertisementAllData?.filter(
+    (item) =>
+      item?.banner_type?.replaceAll?.(" ", "")?.toLowerCase() ==
+        "detailbanner" && item?.attach_banner != ""
+  );
+
   useEffect(() => {
     if (!advertisementLoading) {
       setpageLoading(false);
