@@ -1,17 +1,31 @@
-// import React from 'react'
 import { Grid } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { IoLogoYoutube } from "react-icons/io";
 import { RiInstagramFill } from "react-icons/ri";
 import Logo from "src/assets/svg/download-removebg-preview.png";
-import { AppData } from "src/data/app-data";
+import { useGetAllCategories } from "src/services/categoryServices";
+import { ErrorScreen } from "../basics";
 
-const DesktopFooter = () => {
-  const { shopAddress, shopContactNo, facebook, instagram } =
-    AppData?.webSiteData;
+const DesktopFooter = ({ setpageLoading }) => {
+  const { push } = useRouter();
+  const {
+    data: categoriesAllData,
+    isLoading: categoriesLoading,
+    isError: categoriesError,
+  } = useGetAllCategories();
+
+  useEffect(() => {
+    if (!categoriesLoading) {
+      setpageLoading(false);
+    }
+  }, [categoriesLoading]);
+
+  if (categoriesError) return <ErrorScreen />;
 
   return (
     <footer className="flex justify-center m-0 items-center w-full pt-4 bg-[#000]">
@@ -35,22 +49,22 @@ const DesktopFooter = () => {
                 <div className="text-white text-lg font-semibold mr-6">
                   Find us here
                 </div>
-                <Link href={instagram} legacyBehavior>
+                <Link href="" legacyBehavior>
                   <a target={"blank"}>
                     <RiInstagramFill className="mr-3 text-white text-2xl cursor-pointer" />
                   </a>
                 </Link>
-                <Link href={facebook} legacyBehavior>
+                <Link href="" legacyBehavior>
                   <a target={"blank"}>
                     <BsFacebook className="mr-3 text-white text-2xl cursor-pointer" />
                   </a>
                 </Link>
-                <Link href={facebook} legacyBehavior>
+                <Link href="" legacyBehavior>
                   <a target={"blank"}>
                     <AiFillTwitterCircle className=" mr-3 text-white text-2xl cursor-pointer" />
                   </a>
                 </Link>
-                <Link href={facebook} legacyBehavior>
+                <Link href="" legacyBehavior>
                   <a target={"blank"}>
                     <IoLogoYoutube className=" text-2xl text-white cursor-pointer" />
                   </a>
@@ -74,30 +88,22 @@ const DesktopFooter = () => {
               flexWrap: "wrap",
             }}
           >
-            <li className="text-[#cecece] text-lg">
-              <a href="#">Terms of Use</a>
-            </li>
-            <li>
-              <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
-            </li>
-            <li className="text-[#cecece] text-lg">
-              <a href="#">Accessibility &#038; CC</a>
-            </li>
-            <li>
-              <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
-            </li>
-            <li className="text-[#cecece] text-lg">
-              <a href="#">AdChoices</a>
-            </li>
-            <li>
-              <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
-            </li>
-            <li className="text-[#cecece] text-lg">
-              <a href="#">Modern Slavery Act Statement</a>
-            </li>
-            <li>
-              <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
-            </li>
+            {categoriesAllData?.map((item, index) => {
+              return (
+                <>
+                  <li
+                    className="text-[#cecece] text-lg cursor-pointer"
+                    key={index}
+                    onClick={() => push(`/news/${item?.slug}`)}
+                  >
+                    {item?.name}
+                  </li>
+                  <li>
+                    <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
+                  </li>
+                </>
+              );
+            })}
             <li className="text-[#cecece] text-lg">
               <a href="#">Become A Reporter</a>
             </li>

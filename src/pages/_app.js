@@ -47,7 +47,10 @@ function MyApp({ Component, pageProps }) {
                 <LoadingScreen />
               ) : (
                 <div>
-                  <NavbarFooterLayout>
+                  <NavbarFooterLayout
+                    pageLoading={pageLoading}
+                    setpageLoading={setpageLoading}
+                  >
                     <Component
                       {...pageProps}
                       pageLoading={pageLoading}

@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Skeleton } from "@mui/material";
 import moment from "moment";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -12,40 +12,48 @@ import { NewsDetail } from "../../data/NewsDetail";
 import { FadeIn } from "../animate";
 import { AppCarousel, ErrorScreen } from "../basics";
 
-const Details = ({ oneNewsData = {}, setpageLoading }) => {
+const Details = ({ oneNewsData = {}, OneNewsIsLoading, setpageLoading }) => {
   const { title, descriptions, created_at, attach_file, seoTags } = oneNewsData;
 
   const {
     data: newsAllData,
-    isLoading: newsLoading,
+    isLoading: newsAllLoading,
     isError: newsError,
   } = useGetAllNews();
 
   useEffect(() => {
-    if (!newsLoading) {
+    if (!newsAllLoading) {
       setpageLoading(false);
     }
-  }, [newsLoading]);
+  }, [newsAllLoading]);
 
   if (newsError) return <ErrorScreen />;
 
   return (
     <>
       <Grid container>
-        <Grid item lg={12} sm={12}>
-          <div
-            className="bg-[#F9F9F9] flex justify-center pt-8 pb-8
-          md:mt-0 mt-[-2px] md:pt-16 md:pb-16 items-center text-start w-full"
-          >
-            <div className="container h-[42px] overflow-hidden">
-              <h1
-                className="text-3xl md:text-4xl mt-0 mb-0
-              px-4 md:px-0 leading-6 tracking-normal text-slate-700 leading-[2.3rem] md:leading-10"
-              >
-                {title}
-              </h1>
+        <Grid item lg={12} sm={12} xs={12}>
+          {OneNewsIsLoading ? (
+            <div className="flex justify-center items-center w-full">
+              <div className="container mt-8 mx-4">
+                <Skeleton className="h-20 w-full" variant="rectangular" />
+              </div>
             </div>
-          </div>
+          ) : (
+            <div
+              className="bg-[#F9F9F9] flex justify-center items-center text-start pt-8 pb-8
+          md:mt-0 mt-[-2px] md:pt-16 md:pb-16  w-full"
+            >
+              <div className="container h-[42px] overflow-hidden">
+                <h1
+                  className="text-3xl md:text-4xl mt-0 mb-0
+                        px-4 md:px-0 leading-6 tracking-normal text-slate-700 leading-[2.3rem] md:leading-10"
+                >
+                  {title}
+                </h1>
+              </div>
+            </div>
+          )}
         </Grid>
       </Grid>
 
@@ -58,39 +66,73 @@ const Details = ({ oneNewsData = {}, setpageLoading }) => {
             md={9}
             sm={12}
           >
-            <div className="absolute z-10 mt-5 flex flex-col items-center bg-gray-200 px-4 py-2">
-              <div className="">
-                <span className="text-lg font-semibold text-theme-primary-main">
-                  {moment(created_at).format("MMM")}
-                </span>
-                <br />
-                <span className="text-base font-medium text-slate-800">
-                  {moment(created_at).format("DD")}
-                </span>
+            {OneNewsIsLoading ? (
+              <div className="absolute z-10 mt-5 flex flex-col items-center px-4 py-2">
+                <Skeleton className="h-12 w-12" variant="rectangular" />
               </div>
-            </div>
+            ) : (
+              <div className="absolute z-10 mt-5 flex flex-col items-center bg-gray-200 px-4 py-2">
+                <div className="">
+                  <span className="text-lg font-semibold text-theme-primary-main">
+                    {moment(created_at).format("MMM")}
+                  </span>
+                  <br />
+                  <span className="text-base font-medium text-slate-800">
+                    {moment(created_at).format("DD")}
+                  </span>
+                </div>
+              </div>
+            )}
 
-            <div className="relative h-auto w-full animate-opacityAnimation">
-              <Image
-                height={1000}
-                width={1000}
-                alt="alt"
-                src={attach_file}
-                loading="lazy"
-                className="w-full h-auto object-covor"
-              />
-            </div>
+            {OneNewsIsLoading ? (
+              <div className="">
+                <Skeleton
+                  className=" h-[350px] md:h-[500px] w-full"
+                  variant="rectangular"
+                />
+              </div>
+            ) : (
+              <div className="relative h-auto w-full animate-opacityAnimation">
+                <Image
+                  height={1000}
+                  width={1000}
+                  alt="alt"
+                  src={attach_file}
+                  loading="lazy"
+                  className="w-full h-auto object-covor"
+                />
+              </div>
+            )}
 
             {descriptions?.map((item, index) => {
               return (
-                <div
-                  key={index}
-                  className="text-lg md:text-xl  font-medium text-[#494e51]"
-                >
-                  <p className="mb-0 text-left md:text-justify">
-                    {item?.news_descriptions}
-                  </p>
-                </div>
+                <>
+                  {OneNewsIsLoading ? (
+                    <div className="my-6">
+                      <Skeleton
+                        className="h-8 w-full my-1"
+                        variant="rectangular"
+                      />
+                      <Skeleton
+                        className="h-8 w-full my-1"
+                        variant="rectangular"
+                      />
+                      <Skeleton
+                        className="h-8 w-1/2 my-1"
+                        variant="rectangular"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      key={index}
+                      className="text-lg md:text-xl  font-medium text-[#494e51]"
+                    >
+                      <p className="mb-0 text-left md:text-justify">
+                        {item?.news_descriptions}
+                      </p>
+                    </div>
+                  )}
+                </>
               );
             })}
 
@@ -156,6 +198,8 @@ const Details = ({ oneNewsData = {}, setpageLoading }) => {
               newsAllData={newsAllData}
               seoTags={seoTags}
               setpageLoading={setpageLoading}
+              newsAllLoading={newsAllLoading}
+              OneNewsIsLoading={OneNewsIsLoading}
             />
           </div>
         </div>
@@ -165,7 +209,13 @@ const Details = ({ oneNewsData = {}, setpageLoading }) => {
 };
 export default Details;
 
-export const OtherData = ({ newsAllData, seoTags, setpageLoading }) => {
+export const OtherData = ({
+  newsAllData = [],
+  seoTags,
+  setpageLoading,
+  newsAllLoading,
+  OneNewsIsLoading,
+}) => {
   const { push } = useRouter();
   const {
     data: advertisementAllData,
@@ -197,33 +247,37 @@ export const OtherData = ({ newsAllData, seoTags, setpageLoading }) => {
     >
       <Box>
         <div className="m-auto overflow-hidden">
-          <AppCarousel
-            {...{
-              slidesToShow: 1,
-              fade: false,
-              autoplay: true,
-              infinite: NewsDetail?.length > 1 ? true : false,
-              // autoplaySpped: 1000,
-              autoplaySpeed: 2000,
-            }}
-          >
-            {advertisementAllData?.map((item, index) => {
-              return (
-                <div key={index} className="max-h-fit">
-                  <FadeIn durationTime="1s">
-                    <div className="relative aspect-square w-full">
-                      <Image
-                        fill
-                        src={item?.attach_banner}
-                        className="w-full animate-opacityAnimation object-cover"
-                        alt={item?.title}
-                      />
-                    </div>
-                  </FadeIn>
-                </div>
-              );
-            })}
-          </AppCarousel>
+          {advertisementLoading ? (
+            <Skeleton className="h-60 md:h-80 w-full" variant="rectangular" />
+          ) : (
+            <AppCarousel
+              {...{
+                slidesToShow: 1,
+                fade: false,
+                autoplay: true,
+                infinite: NewsDetail?.length > 1 ? true : false,
+                // autoplaySpped: 1000,
+                autoplaySpeed: 2000,
+              }}
+            >
+              {advertisementAllData?.map((item, index) => {
+                return (
+                  <div key={index} className="max-h-fit">
+                    <FadeIn durationTime="1s">
+                      <div className="relative aspect-square w-full">
+                        <Image
+                          fill
+                          src={item?.attach_banner}
+                          className="w-full animate-opacityAnimation object-cover"
+                          alt={item?.title}
+                        />
+                      </div>
+                    </FadeIn>
+                  </div>
+                );
+              })}
+            </AppCarousel>
+          )}
         </div>
 
         <div
@@ -240,28 +294,58 @@ export const OtherData = ({ newsAllData, seoTags, setpageLoading }) => {
               <div key={index} onClick={() => handlepush(item?._id)}>
                 <div className="relative flex  hover:cursor-pointer hoverline md:mb-8 mb-4">
                   <div className="relative mr-2.5 md:h-28 md:w-28 h-20 w-20 shrink-0 animate-opacityAnimation overflow-hidden">
-                    <Image
-                      fill
-                      src={item?.attach_file}
-                      alt="logo"
-                      className="h-full w-full object-cover"
-                    />
+                    {newsAllLoading ? (
+                      <Skeleton
+                        className="h-full w-full"
+                        variant="rectangular"
+                      />
+                    ) : (
+                      <Image
+                        fill
+                        src={item?.attach_file}
+                        alt="logo"
+                        className="h-full w-full object-cover"
+                      />
+                    )}
                   </div>
 
                   <div className="w-full">
-                    <div className="flex md:text-justify w-full text-left">
-                      <a className="text-lg capitalize h-[88px] overflow-hidden">
-                        <span className="underlinehead font-bold">
-                          {item?.title}
-                        </span>
-                      </a>
-                    </div>
+                    {newsAllLoading ? (
+                      <div>
+                        <Skeleton
+                          className="h-4 w-full my-2"
+                          variant="rectangular"
+                        />
+                        <Skeleton
+                          className="h-4 w-full my-2"
+                          variant="rectangular"
+                        />
+                        <Skeleton
+                          className="h-4 w-3/4 my-2"
+                          variant="rectangular"
+                        />
 
-                    <div className="text-slate-500 md:mt-4 mt-2">
-                      <h6 className="text-sm m-0  font-thin">
-                        By &nbsp; axilthemes
-                      </h6>
-                    </div>
+                        <Skeleton
+                          className="h-4 w-1/2 mt-6"
+                          variant="rectangular"
+                        />
+                      </div>
+                    ) : (
+                      <>
+                        <div className="flex md:text-justify w-full text-left">
+                          <a className="text-lg capitalize h-[88px] overflow-hidden">
+                            <span className="underlinehead font-bold">
+                              {item?.title}
+                            </span>
+                          </a>
+                        </div>
+                        <div className="text-slate-500 md:mt-4 mt-2">
+                          <h6 className="text-sm m-0  font-thin">
+                            By &nbsp; axilthemes
+                          </h6>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -276,17 +360,26 @@ export const OtherData = ({ newsAllData, seoTags, setpageLoading }) => {
             Tags
           </div>
 
-          {seoTags?.map((item, index) => {
-            return (
-              <div
-                key={index}
-                className="relative mr-2 mb-2 inline-block bg-slate-200 mt-[10px]
+          {OneNewsIsLoading ? (
+            <Skeleton
+              className="h-10 w-20 md:h-12 md:w-28 mt-[10px]"
+              variant="rectangular"
+            />
+          ) : (
+            <>
+              {seoTags?.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="relative mr-2 mb-2 inline-block bg-slate-200 mt-[10px]
                          px-3 py-2 align-top text-sm capitalize text-gray opacity-60 border border-slate-400"
-              >
-                {item}
-              </div>
-            );
-          })}
+                  >
+                    {item}
+                  </div>
+                );
+              })}
+            </>
+          )}
         </div>
       </Box>
     </Box>

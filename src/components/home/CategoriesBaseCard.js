@@ -1,9 +1,10 @@
+import { Skeleton } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { RiShareForward2Fill } from "react-icons/ri";
 import { TbBrandWhatsapp } from "react-icons/tb";
 
-export default function CategoriesBaseCard({ cardData = [], setpageLoading }) {
+export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
   const { push } = useRouter();
 
   const handleOnClick = () => {
@@ -42,53 +43,96 @@ export default function CategoriesBaseCard({ cardData = [], setpageLoading }) {
                       className="relative h-full w-full cursor-pointer"
                       onClick={() => push(`/news/detail/${item?._id}`)}
                     >
-                      <Image
-                        loading="lazy"
-                        src={item.attach_file}
-                        height={1000}
-                        width={1000}
-                        className="w-full h-full object-contain"
-                        alt="Sample image"
-                      />
+                      {newsLoading ? (
+                        <Skeleton
+                          className="h-[350px] w-full"
+                          variant="rectangular"
+                        />
+                      ) : (
+                        <Image
+                          loading="lazy"
+                          src={item.attach_file}
+                          height={1000}
+                          width={1000}
+                          className="w-full h-full object-contain"
+                          alt="Sample image"
+                        />
+                      )}
                     </div>
 
                     <div className="px-4">
-                      <div className="w-[200px] mt-2.5">
-                        <div
-                          className="px-4 py-1 font-sm w-fit
-                                font-semibold text-md text-white flex text-center justify-center cursor-pointer"
-                          style={{
-                            backgroundColor:
-                              index % 2 == 0
-                                ? index % 4 == 0
-                                  ? index % 3 == 0
-                                    ? "#5856d5"
-                                    : "#5ac8fa"
-                                  : "#4cd965"
-                                : "#ff4f00",
-                          }}
-                          onClick={() => push(`/news/${item?.categorySlug}`)}
-                        >
-                          {item.categoryName}
+                      <div className="w-fit mt-2.5">
+                        {newsLoading ? (
+                          <Skeleton
+                            className="h-[2rem] w-24"
+                            variant="rectangular"
+                          />
+                        ) : (
+                          <div
+                            className="px-4 py-[0.4rem] font-sm w-fit
+                                font-semibold text-md text-white flex text-center justify-center cursor-pointer capitalize"
+                            style={{
+                              backgroundColor:
+                                index % 2 == 0
+                                  ? index % 4 == 0
+                                    ? index % 3 == 0
+                                      ? "#5856d5"
+                                      : "#5ac8fa"
+                                    : "#4cd965"
+                                  : "#ff4f00",
+                            }}
+                            onClick={() => push(`/news/${item?.categorySlug}`)}
+                          >
+                            {item.categorySlug}
+                          </div>
+                        )}
+                      </div>
+
+                      {newsLoading ? (
+                        <div className="mt-4">
+                          <Skeleton
+                            className="h-4 w-full my-2"
+                            variant="rectangular"
+                          />
+                          <Skeleton
+                            className="h-4 w-3/4"
+                            variant="rectangular"
+                          />
                         </div>
-                      </div>
-
-                      <div
-                        className="flex text-left w-full"
-                        onClick={() => push(`/news/detail/${item?._id}`)}
-                      >
-                        <a className="link text-xl font-bold mt-3.5 h-[62px] overflow-hidden cursor-pointer">
-                          <span className="underlinehead">{item.title}</span>
-                        </a>
-                      </div>
-
-                      <h5
-                        className="text-[1.05rem] font-normal cursor-pointer
+                      ) : (
+                        <div
+                          className="flex text-left w-full"
+                          onClick={() => push(`/news/detail/${item?._id}`)}
+                        >
+                          <a className="link text-xl font-bold mt-3.5 h-[62px] overflow-hidden cursor-pointer">
+                            <span className="underlinehead">{item.title}</span>
+                          </a>
+                        </div>
+                      )}
+                      {newsLoading ? (
+                        <div className="my-4">
+                          <Skeleton
+                            className="h-4 w-full my-2"
+                            variant="rectangular"
+                          />
+                          <Skeleton
+                            className="h-4 w-full my-2"
+                            variant="rectangular"
+                          />
+                          <Skeleton
+                            className="h-4 w-2/4"
+                            variant="rectangular"
+                          />
+                        </div>
+                      ) : (
+                        <h5
+                          className="text-[1.05rem] font-normal cursor-pointer
                     flex text-left mb-3.5 mt-0  leading-[1.50rem]"
-                        onClick={() => push(`/news/detail/${item?._id}`)}
-                      >
-                        {item.short_description}
-                      </h5>
+                          onClick={() => push(`/news/detail/${item?._id}`)}
+                        >
+                          {item.short_description}
+                        </h5>
+                      )}
                     </div>
 
                     <div className="flex justify-between items-center px-4">

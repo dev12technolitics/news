@@ -8,20 +8,24 @@ import { useGetOneNewsById } from "src/services/news";
 const NewsDetailPage = ({ setpageLoading }) => {
   const { query } = useRouter();
   const id = query?.id;
-  const { data, isLoading, isError } = useGetOneNewsById(id);
+  const { data, isLoading: OneNewsIsLoading, isError } = useGetOneNewsById(id);
 
   useEffect(() => {
-    if (!isLoading) {
+    if (!OneNewsIsLoading) {
       setpageLoading(false);
     }
-  }, [isLoading]);
+  }, [OneNewsIsLoading]);
 
   if (isError) return <ErrorScreen />;
 
   return (
     <>
       <FadeRight durationTime={"1s"}>
-        <NewsDetail oneNewsData={data} setpageLoading={setpageLoading} />
+        <NewsDetail
+          oneNewsData={data}
+          OneNewsIsLoading={OneNewsIsLoading}
+          setpageLoading={setpageLoading}
+        />
       </FadeRight>
     </>
   );

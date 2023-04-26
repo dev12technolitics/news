@@ -33,14 +33,19 @@ export default function HomePage({ setpageLoading }) {
     <div>
       <div className="md:block hidden">
         <FadeIn durationTime="1s">
-          <DynamicHomeNews newsAllData={newsAllData} />
+          <DynamicHomeNews
+            newsAllData={newsAllData}
+            newsLoading={newsLoading}
+          />
         </FadeIn>
       </div>
       <div className="md:hidden">
         <FadeIn durationTime="1s">
           <DynamicMobileHomeNews
             categories={categoriesAllData}
+            categoriesLoading={categoriesLoading}
             newsAllData={newsAllData}
+            newsLoading={newsLoading}
             setpageLoading={setpageLoading}
           />
         </FadeIn>

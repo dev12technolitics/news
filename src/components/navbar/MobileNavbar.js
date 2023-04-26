@@ -4,7 +4,7 @@ import Router, { useRouter } from "next/router";
 import Logo from "src/assets/svg/Screenshotlogo.png";
 import MobileSideBar from "./MobileSideBar";
 
-export default function MobileNavbar({ userData, userType }) {
+export default function MobileNavbar() {
   const { pathname } = useRouter();
 
   const handlePageBack = () => {
@@ -31,7 +31,7 @@ export default function MobileNavbar({ userData, userType }) {
               aria-expanded="false"
               className="bg-[#fff]"
             >
-              <MobileSideBar userType={userType} userData={userData} />
+              <MobileSideBar />
             </button>
           </div>
 

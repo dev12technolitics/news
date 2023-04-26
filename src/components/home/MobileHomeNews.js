@@ -1,8 +1,15 @@
+import { Skeleton } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import CategoriesBaseCard from "./CategoriesBaseCard";
 
-export default function NewsPage({ newsAllData, setpageLoading, categories }) {
+export default function NewsPage({
+  newsAllData,
+  newsLoading,
+  setpageLoading,
+  categories,
+  categoriesLoading,
+}) {
   const { push } = useRouter();
   const [openTab, setOpenTab] = useState("All");
   const [scrolled, setScrolled] = useState(false);
@@ -57,19 +64,28 @@ export default function NewsPage({ newsAllData, setpageLoading, categories }) {
                   >
                     All
                   </div>
+
                   {categories?.map((item, index) => {
                     return (
-                      <div
-                        key={index}
-                        onClick={() => filterCardData(item?.slug)}
-                        className={`flex justify-center text-sm items-center font-medium ${
-                          openTab == item?.slug
-                            ? "tab_button_active  py-2 px-4"
-                            : "tab_button py-2 px-4"
-                        }`}
-                      >
-                        <span className="">{item?.name}</span>
-                      </div>
+                      <>
+                        {categoriesLoading ? (
+                          <div className="">
+                            <Skeleton className="h-10 w-20 mx-3" />
+                          </div>
+                        ) : (
+                          <div
+                            key={index}
+                            onClick={() => filterCardData(item?.slug)}
+                            className={`flex justify-center text-sm items-center font-medium ${
+                              openTab == item?.slug
+                                ? "tab_button_active  py-2 px-4"
+                                : "tab_button py-2 px-4"
+                            }`}
+                          >
+                            <span className="">{item?.name}</span>
+                          </div>
+                        )}
+                      </>
                     );
                   })}
                 </div>
@@ -82,7 +98,7 @@ export default function NewsPage({ newsAllData, setpageLoading, categories }) {
                   <div className="flex flex-col justify-center w-full">
                     <CategoriesBaseCard
                       cardData={cardData}
-                      setpageLoading={setpageLoading}
+                      newsLoading={newsLoading}
                     />
                   </div>
                 </div>

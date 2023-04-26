@@ -8,7 +8,7 @@ import { CgMenu } from "react-icons/cg";
 import { useGetAllCategories } from "src/services/categoryServices";
 import { MOBILE_NAVBAR_LINKS } from "../../data/app-data-links";
 
-export default function MobileSidebar({ userData }) {
+export default function MobileSidebar() {
   const [state, setState] = useState({
     left: false,
   });
