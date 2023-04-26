@@ -8,7 +8,7 @@ export default function DesktopTopNavbar() {
       <div className="container">
         <div className="grid grid-cols-3">
           <div className="md:hidden lg:block">
-            <div className="relative h-28 w-3/4">
+            <div className="relative h-28 w-3/4 ml-[-8vh]">
               <Image
                 fill
                 loading="lazy"
@@ -36,36 +36,4 @@ export default function DesktopTopNavbar() {
       </div>
     </div>
   );
-}
-
-{
-  /* <div className="m-auto overflow-hidden">
-<AppCarousel
-  {...{
-    slidesToShow: 1,
-    fade: false,
-    autoplay: true,
-    infinite: NewsDetail?.length > 1 ? true : false,
-    // autoplaySpped: 1000,
-    autoplaySpeed: 2000,
-  }}
->
-  {advertisementAllData?.map((item, index) => {
-    return (
-      <div key={index} className="max-h-fit">
-        <FadeIn durationTime="1s">
-          <div className="relative aspect-square w-full">
-            <Image
-              fill
-              src={item?.attach_banner}
-              className="w-full animate-opacityAnimation object-cover"
-              alt={item?.title}
-            />
-          </div>
-        </FadeIn>
-      </div>
-    );
-  })}
-</AppCarousel>
-</div> */
 }

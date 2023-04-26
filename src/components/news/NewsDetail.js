@@ -71,7 +71,7 @@ const Details = ({ oneNewsData = {}, OneNewsIsLoading, setpageLoading }) => {
       </Grid>
 
       <div className="mx-auto my-10 container">
-        <div class="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 grid-cols-1">
+        <div class="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 md:gap-8 lg:gap-8">
           <div
             className="lg:col-span-5 md:col-span-4 px-4 md:px-0"
             item
@@ -248,16 +248,7 @@ export const OtherData = ({
     push(`/news/detail/${id}`);
   };
   return (
-    <Box
-      sx={{
-        padding: {
-          xs: "0px",
-          sm: "0px",
-          md: "0 0 0 0px ",
-          lg: "0 0 0 40px",
-        },
-      }}
-    >
+    <Box>
       <Box>
         <div className="m-auto overflow-hidden">
           {advertisementLoading ? (
