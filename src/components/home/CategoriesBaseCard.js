@@ -1,8 +1,8 @@
 import { Skeleton } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { RiShareForward2Fill } from "react-icons/ri";
 import { TbBrandWhatsapp } from "react-icons/tb";
+import Share from "src/assets/svg/share";
 
 export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
   const { push } = useRouter();
@@ -141,11 +141,8 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
                           className="my-0 flex text-lg items-center text-[#212b36d1]"
                           onClick={() => handleOnClick()}
                         >
-                          Share
-                          <RiShareForward2Fill
-                            className="ml-1"
-                            color="#212b36d1"
-                          />
+                          Share &nbsp;
+                          <Share />
                         </h3>
                       </div>
                       <div>
